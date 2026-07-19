@@ -1,0 +1,25 @@
+feature_group,model,mean,std,feature_label
+all_23384,ElasticNet,0.6177632918562401,0.0094742468492202,All tabular features
+all_23384,Ridge,0.5336566572306763,0.0076917944384712,All tabular features
+all_23384,XGBoost,0.6180151349834346,0.008586223528146,All tabular features
+basic_plus_biochemical_full,ElasticNet,0.6338227608925932,0.0131129515042955,Full regulatory + basic
+basic_plus_biochemical_full,Ridge,0.6306430962176466,0.0131853606804994,Full regulatory + basic
+basic_plus_biochemical_full,XGBoost,0.676616082817748,0.0056853992476995,Full regulatory + basic
+biochemical_371,ElasticNet,0.537313161885806,0.0084801472599413,Compact biochemical
+biochemical_371,Ridge,0.5340235961663937,0.0081580638618744,Compact biochemical
+biochemical_371,XGBoost,0.5696057180376476,0.0073035954248576,Compact biochemical
+biochemical_full_no_basic,ElasticNet,0.6095080817997706,0.0141008131488128,Full regulatory
+biochemical_full_no_basic,Ridge,0.6051063543902947,0.0148937755274237,Full regulatory
+biochemical_full_no_basic,XGBoost,0.6605683538116933,0.0090536410512568,Full regulatory
+genetic_only,ElasticNet,0.3223978331711262,0.0202731227811553,Sequence-statistical
+genetic_only,Ridge,0.2643254055510927,0.0165396533524576,Sequence-statistical
+genetic_only,XGBoost,0.3509981152462574,0.019386093448827,Sequence-statistical
+genetic_plus_biochemical_371,ElasticNet,0.5827626413833134,0.0115291055697415,Compact bio. + seq. stat.
+genetic_plus_biochemical_371,Ridge,0.4999655299696302,0.00976331468582,Compact bio. + seq. stat.
+genetic_plus_biochemical_371,XGBoost,0.5845397430206459,0.0105553059416166,Compact bio. + seq. stat.
+genetic_plus_biochemical_full,ElasticNet,0.6373993363479694,0.0141454707070446,Full regulatory + seq. stat.
+genetic_plus_biochemical_full,Ridge,0.5666961810445164,0.0166932990172878,Full regulatory + seq. stat.
+genetic_plus_biochemical_full,XGBoost,0.6527091056815824,0.0100130214350347,Full regulatory + seq. stat.
+saluki_basic8,ElasticNet,0.3330295919061448,0.0154861514568309,Basic architecture
+saluki_basic8,Ridge,0.3330174181794588,0.0154840251362199,Basic architecture
+saluki_basic8,XGBoost,0.3834321964902021,0.0107767555072542,Basic architecture

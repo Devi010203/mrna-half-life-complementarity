@@ -1,0 +1,25 @@
+node,x,y,label,record_type,source,target,source_side,target_side
+saluki,0.03,0.73,"Saluki human
+half-life data",node,,,,
+target,0.03,0.4,"Normalized
+HALFLIFE target",node,,,,
+features,0.29,0.73,"Saluki-derived
+feature groups",node,,,,
+tabular,0.53,0.73,"Full tabular benchmark
+N = 12,981",node,,,,
+sequence,0.29,0.4,"mRNA sequence
+only",node,,,,
+mrnalm,0.53,0.4,"mRNA-LM OOF
+predictions",node,,,,
+fusion,0.76,0.58,"Matched XGB/mRNA-LM
+fusion N = 12,981",node,,,,
+interpret,0.76,0.22,"SHAP, ablation,
+fusion-gain profiling",node,,,,
+,,,,edge,saluki,features,right,left
+,,,,edge,saluki,target,bottom,top
+,,,,edge,target,sequence,right,left
+,,,,edge,features,tabular,right,left
+,,,,edge,sequence,mrnalm,right,left
+,,,,edge,tabular,fusion,right,left
+,,,,edge,mrnalm,fusion,right,left
+,,,,edge,fusion,interpret,bottom,top

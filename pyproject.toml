@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mrna-half-life-complementarity"
+version = "0.1.0"
+description = "Reproducibility code for sequence-only and annotation-augmented human mRNA half-life prediction."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib>=3.10,<4",
+  "numpy>=1.26,<3",
+  "openpyxl>=3.1,<4",
+  "pandas>=2.2,<3",
+  "scikit-learn>=1.6,<2",
+  "scipy>=1.13,<2",
+  "xgboost>=3.0,<4",
+]
+
+[project.optional-dependencies]
+mrnalm = [
+  "optuna>=4,<5",
+  "peft>=0.18,<1",
+  "tensorboard>=2.19,<3",
+  "torch>=2.6,<3",
+  "transformers==4.49.0",
+]
+
+[tool.setuptools]
+packages = []

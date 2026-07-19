@@ -1,0 +1,67 @@
+{
+  "session_root": "./results/runs/result/mrnalm_triplet_human/mrnalm_triplet_seqhead_human_lora_20260422_191916/cv_fold_01",
+  "experiment_name": "mrnalm_triplet_seqhead_human_lora",
+  "tuning_mode": "lora",
+  "script_metadata": {
+    "absolute_script_path": "./results/runs/script/main/9train_mrnalm_triplet_seqhead_noargs.py",
+    "script_sha256": "cc7549b5a380925997d51c87d1aceb3affe3bfea71d6f30bb7527a8274167fc6",
+    "git_commit": null
+  },
+  "objective_metric": "r2",
+  "result": {
+    "trial_tag": "mrnalm_triplet_seqhead_human_lora",
+    "out_dir": "./results/runs/result/mrnalm_triplet_human/mrnalm_triplet_seqhead_human_lora_20260422_191916/cv_fold_01/mrnalm_triplet_seqhead_human_lora",
+    "adapter_dir": "./results/runs/result/mrnalm_triplet_human/mrnalm_triplet_seqhead_human_lora_20260422_191916/cv_fold_01/mrnalm_triplet_seqhead_human_lora/adapter",
+    "objective": 0.41415143053533654,
+    "best_epoch": 4,
+    "tuning_mode": "lora",
+    "objective_metric": "r2",
+    "head_arch": "chunk_seq_saluki_v1",
+    "lora_target_resolution_mode": "manual_override",
+    "resumed_from_last_checkpoint": false,
+    "final": {
+      "head_arch": "chunk_seq_saluki_v1",
+      "train": {
+        "r2": 0.6295454970654503,
+        "pearson": 0.7964140998933603,
+        "spearman": 0.7978362356370566,
+        "rmse": 2.932487922255249,
+        "mae": 2.2448197241923187
+      },
+      "val": {
+        "r2": 0.41415143053533654,
+        "pearson": 0.6539860799609902,
+        "spearman": 0.6469029716671052,
+        "rmse": 3.7002959645247766,
+        "mae": 2.849999485541966
+      },
+      "test": {
+        "r2": 0.4245796905181174,
+        "pearson": 0.6620712898096135,
+        "spearman": 0.645268740306926,
+        "rmse": 3.669476861014027,
+        "mae": 2.8566310337951486
+      },
+      "best_epoch": 4,
+      "best_val_metric_name": "r2",
+      "best_val_metric_cmp": 0.41415143053533654,
+      "best_val_metric_raw": 0.41415143053533654,
+      "objective_metric": "r2",
+      "tuning_mode": "lora",
+      "lora_target_resolution_mode": "manual_override",
+      "configured_lora_target_modules": [
+        "query",
+        "key",
+        "value"
+      ],
+      "selected_lora_target_modules": [
+        "query",
+        "key",
+        "value"
+      ],
+      "resumed_from_last_checkpoint": false,
+      "last_checkpoint_path": "./results/runs/result/mrnalm_triplet_human/mrnalm_triplet_seqhead_human_lora_20260422_191916/cv_fold_01/mrnalm_triplet_seqhead_human_lora/last.pt",
+      "best_checkpoint_format": "mrnalm_seqhead_lora_head"
+    }
+  }
+}

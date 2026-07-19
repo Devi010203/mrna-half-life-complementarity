@@ -1,0 +1,26 @@
+model,model_label,metric,mean,std,n_folds,n_total
+xgb_basic_plus_biochemical_full,XGB basic_plus_biochemical_full,r2,0.676616082817748,0.005685399247699537,5,12981
+xgb_basic_plus_biochemical_full,XGB basic_plus_biochemical_full,pearson,0.8225993724187797,0.0034732971829570095,5,12981
+xgb_basic_plus_biochemical_full,XGB basic_plus_biochemical_full,spearman,0.8124291338112319,0.006416650286556784,5,12981
+xgb_basic_plus_biochemical_full,XGB basic_plus_biochemical_full,rmse,2.742695507336885,0.02715652373575337,5,12981
+xgb_basic_plus_biochemical_full,XGB basic_plus_biochemical_full,mae,2.113009728007099,0.024229401742515897,5,12981
+mrnalm,mRNA-LM,r2,0.44362974844089376,0.011221595178461217,5,12981
+mrnalm,mRNA-LM,pearson,0.6706785842094132,0.00998245510827862,5,12981
+mrnalm,mRNA-LM,spearman,0.6576196974311899,0.009342271254292383,5,12981
+mrnalm,mRNA-LM,rmse,3.5974838065246764,0.0426595177454309,5,12981
+mrnalm,mRNA-LM,mae,2.809244840280215,0.03003213734969543,5,12981
+late_fusion_linear,late fusion linear,r2,0.7007589021237977,0.007963120796795845,5,12981
+late_fusion_linear,late fusion linear,pearson,0.8372453608833951,0.004699011003962024,5,12981
+late_fusion_linear,late fusion linear,spearman,0.8280029730383862,0.005944942686841623,5,12981
+late_fusion_linear,late fusion linear,rmse,2.6382211728006486,0.03875858215687766,5,12981
+late_fusion_linear,late fusion linear,mae,2.035866269491525,0.03320903159046751,5,12981
+ridge_basic_plus_biochemical_full,Ridge basic_plus_biochemical_full,r2,0.630643096263962,0.013185360475586824,5,12981
+ridge_basic_plus_biochemical_full,Ridge basic_plus_biochemical_full,pearson,0.7945797938394367,0.008014350282048308,5,12981
+ridge_basic_plus_biochemical_full,Ridge basic_plus_biochemical_full,spearman,0.7895161549931231,0.008703030167843795,5,12981
+ridge_basic_plus_biochemical_full,Ridge basic_plus_biochemical_full,rmse,2.930783586669126,0.05234229331161427,5,12981
+ridge_basic_plus_biochemical_full,Ridge basic_plus_biochemical_full,mae,2.2574294674753945,0.03751752626288153,5,12981
+elasticnet_basic_plus_biochemical_full,ElasticNet basic_plus_biochemical_full,r2,0.6338227606871757,0.013112951255154727,5,12981
+elasticnet_basic_plus_biochemical_full,ElasticNet basic_plus_biochemical_full,pearson,0.7964761200081586,0.007974624727529094,5,12981
+elasticnet_basic_plus_biochemical_full,ElasticNet basic_plus_biochemical_full,spearman,0.7919078936602844,0.008531662779613697,5,12981
+elasticnet_basic_plus_biochemical_full,ElasticNet basic_plus_biochemical_full,rmse,2.9181490300679664,0.05288878562515416,5,12981
+elasticnet_basic_plus_biochemical_full,ElasticNet basic_plus_biochemical_full,mae,2.244046557483192,0.03789572082622595,5,12981

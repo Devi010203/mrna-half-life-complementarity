@@ -1,0 +1,45 @@
+check,observed,expected,difference,status
+S1 final N,12981,12981,0,pass
+S1 fold sizes,2600/2600/2600/2600/2581,2600/2600/2600/2600/2581,,pass
+S2 ENSID cross-fold duplication,0,0,0,pass
+S3 saluki_basic8 n_features,8,8,0,pass
+S3 genetic_only n_features,23005,23005,0,pass
+S3 biochemical_371 n_features,371,371,0,pass
+S3 genetic_plus_biochemical_371 n_features,23376,23376,0,pass
+S3 all_23384 n_features,23384,23384,0,pass
+S3 biochemical_full_no_basic n_features,551,551,0,pass
+S3 basic_plus_biochemical_full n_features,559,559,0,pass
+S3 genetic_plus_biochemical_full n_features,23556,23556,0,pass
+S4 mRNA-LM AggHead test R²,0.4436297483236481,0.4436,2.9748323648104424e-05,pass
+S4 XGBoost main feature set test R²,0.676616082817748,0.6766,1.6082817748008793e-05,pass
+S4 ElasticNet best test R²,0.6373993363479694,0.6374,-6.636520305525195e-07,pass
+S4 linear fusion test R²,0.7007589021237977,0.7008,-4.109787620232286e-05,pass
+S5 prediction Pearson,0.6751610374937911,0.6752,-3.8962506208939374e-05,pass
+S5 prediction Spearman,0.6616771668680488,0.6617,-2.2833131951172092e-05,pass
+S5 residual Pearson,0.5682583475160824,0.5683,-4.165248391763132e-05,pass
+S5 residual Spearman,0.5443849530566649,0.5444,-1.5046943335095264e-05,pass
+S5 fusion delta values,+0.0281;+0.0220;+0.0220;+0.0217;+0.0269,+0.0281;+0.0220;+0.0220;+0.0217;+0.0269,,pass
+S6 BASIC n_features,8,8,0,pass
+S6 RIP n_features,33,33,0,pass
+S6 ENCORI n_features,133,133,0,pass
+S6 eCLIP n_features,225,225,0,pass
+S6 M6ACLIP n_features,13,13,0,pass
+S6 PARCLIP n_features,146,146,0,pass
+S6 TE n_features,1,1,0,pass
+S6 remove_basic delta R²,-0.016047729006054667,-0.016,-4.772900605466701e-05,pass
+S6 remove_encori delta R²,-0.022855268506228987,-0.0229,4.4731493771012903e-05,pass
+S6 remove_rip delta R²,-0.05994337071423439,-0.0599,-4.337071423438782e-05,pass
+S6 remove_rip_encori delta R²,-0.11670465694658927,-0.1167,-4.6569465892709605e-06,pass
+S7 group sizes,"{'neutral_middle60': 7787.0, 'fusion_helped_top20': 2597.0, 'fusion_hurt_top20': 2597.0}","{helped:2597, neutral:7787, hurt:2597}",,pass
+S7 abs_err_xgb FDR q,1.1558042685707899e-208,1.16e-208,-4.195731429210221e-211,pass
+S7 abs_err_fusion FDR q,1.1793631461815968e-41,1.18e-41,-6.368538184032062e-45,pass
+S7 HALFLIFE FDR q,0.6364515128922825,0.636,0.0004515128922825129,pass
+S7 xgb_residual FDR q,0.7166969227226205,0.717,-0.0003030772773794377,pass
+S8 motif/k-mer minimum FDR q,0.264324596341593,0.264,0.00032459634159298645,pass
+S8 any FDR-significant feature,0,0,0,pass
+S9 XGBoost R²,-0.0029516353305744,-0.003,4.836466942559998e-05,pass
+S9 Ridge R²,-0.0095290695877908,-0.0095,-2.906958779080003e-05,pass
+S9 XGBoost Pearson,-0.0401274608508261,-0.0401,-2.7460850826104e-05,pass
+S9 XGBoost Spearman,-0.0441228733366927,-0.0441,-2.287333669270114e-05,pass
+S9 Ridge Pearson,-0.0315659714209989,-0.0316,3.4028579001102455e-05,pass
+S9 Ridge Spearman,-0.0340858362482481,-0.0341,1.4163751751901377e-05,pass
