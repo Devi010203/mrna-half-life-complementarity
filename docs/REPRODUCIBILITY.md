@@ -4,6 +4,8 @@
 
 All current human analyses use the same processed `HALFLIFE` target and the same five outer folds. The fold-assignment file is `data/processed/human/splits/cv_k5_seed42.csv`. Within each outer fold, model selection and early stopping use only a validation subset drawn from the outer-training records. The outer test fold remains held out until final evaluation.
 
+Fold-level model performance, fusion, prediction/residual correlation, and family-ablation summaries use the population standard deviation across the five fixed outer folds (`ddof = 0`). Supplementary paired comparisons additionally report a 95% percentile interval from 5,000 bootstrap resamples of the five paired fold differences (seed 42) and an exact two-sided sign-flip summary. With only five folds, effect size and directional consistency remain the primary evidence.
+
 The tabular benchmark and prediction-level fusion both contain 12,981 transcripts in the current release. They remain distinct experiments: the tabular benchmark evaluates each feature/model combination, whereas fusion pairs XGBoost and mRNA-LM predictions record by record and fits fusion coefficients only from aligned validation predictions.
 
 ## Required inputs
@@ -99,4 +101,3 @@ python scripts/sanitize_release_metadata.py
 ```
 
 Add `--write` only when the report identifies metadata strings that should be replaced. The script does not inspect or modify binary workbooks; those should be checked separately.
-

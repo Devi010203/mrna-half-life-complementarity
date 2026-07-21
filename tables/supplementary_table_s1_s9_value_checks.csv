@@ -19,6 +19,7 @@ S5 prediction Spearman,0.6616771668680488,0.6617,-2.2833131951172092e-05,pass
 S5 residual Pearson,0.5682583475160824,0.5683,-4.165248391763132e-05,pass
 S5 residual Spearman,0.5443849530566649,0.5444,-1.5046943335095264e-05,pass
 S5 fusion delta values,+0.0281;+0.0220;+0.0220;+0.0217;+0.0269,+0.0281;+0.0220;+0.0220;+0.0217;+0.0269,,pass
+S5 paired comparisons include bootstrap CI,8,8,0,pass
 S6 BASIC n_features,8,8,0,pass
 S6 RIP n_features,33,33,0,pass
 S6 ENCORI n_features,133,133,0,pass

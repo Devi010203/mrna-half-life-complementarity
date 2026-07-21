@@ -11,9 +11,9 @@ OUTPUT_STEM = "fig4_fusion_gain_profile"
 
 GROUP_ORDER = ["fusion_helped_top20", "neutral_middle60", "fusion_hurt_top20"]
 GROUP_LABELS = {
-    "fusion_helped_top20": "Helped\ntop 20%",
-    "neutral_middle60": "Neutral\nmiddle 60%",
-    "fusion_hurt_top20": "Hurt\ntop 20%",
+    "fusion_helped_top20": "Helped\nTop 20%",
+    "neutral_middle60": "Neutral\nMiddle 60%",
+    "fusion_hurt_top20": "Hurt\nBottom 20%",
 }
 
 

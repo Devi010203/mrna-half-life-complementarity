@@ -408,7 +408,7 @@ def summarize_fold_metrics(fold_metrics: pd.DataFrame) -> pd.DataFrame:
         row: dict[str, Any] = {"feature_set": feature_set, "n_folds": int(sub["cv_fold"].nunique())}
         for col in metric_cols:
             row[f"{col}_mean"] = float(sub[col].mean())
-            row[f"{col}_std"] = float(sub[col].std(ddof=1)) if len(sub) > 1 else 0.0
+            row[f"{col}_std"] = float(sub[col].std(ddof=0)) if len(sub) > 1 else 0.0
         rows.append(row)
     return pd.DataFrame(rows)
 

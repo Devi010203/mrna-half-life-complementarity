@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import gzip
+import itertools
 import json
 from pathlib import Path
 from typing import Iterable
 
 import numpy as np
 import pandas as pd
+
+
+FOLD_SUMMARY_DDOF = 0
+BOOTSTRAP_REPEATS = 5000
+BOOTSTRAP_SEED = 42
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -162,7 +168,7 @@ def line_count_csv(path: Path) -> int:
         return max(sum(1 for _ in handle) - 1, 0)
 
 
-def mean_sd(values: Iterable[float], ddof: int = 1) -> tuple[float, float, str]:
+def mean_sd(values: Iterable[float], ddof: int = FOLD_SUMMARY_DDOF) -> tuple[float, float, str]:
     arr = pd.Series(list(values), dtype="float64").dropna()
     if arr.empty:
         return np.nan, np.nan, ""
@@ -171,7 +177,12 @@ def mean_sd(values: Iterable[float], ddof: int = 1) -> tuple[float, float, str]:
     return mean, sd, f"{mean:.4f} ± {sd:.4f}" if pd.notna(sd) else f"{mean:.4f}"
 
 
-def metric_summary(df: pd.DataFrame, group_cols: list[str], metric_cols: list[str], ddof: int = 1) -> pd.DataFrame:
+def metric_summary(
+    df: pd.DataFrame,
+    group_cols: list[str],
+    metric_cols: list[str],
+    ddof: int = FOLD_SUMMARY_DDOF,
+) -> pd.DataFrame:
     rows = []
     for keys, sub in df.groupby(group_cols, dropna=False, sort=False):
         if not isinstance(keys, tuple):
@@ -189,6 +200,107 @@ def metric_summary(df: pd.DataFrame, group_cols: list[str], metric_cols: list[st
                     "N_folds": int(sub["fold"].nunique()) if "fold" in sub.columns else int(len(sub)),
                 }
             )
+    return pd.DataFrame(rows)
+
+
+def bootstrap_mean_ci(
+    values: Iterable[float],
+    n_boot: int = BOOTSTRAP_REPEATS,
+    seed: int = BOOTSTRAP_SEED,
+) -> tuple[float, float]:
+    arr = pd.Series(list(values), dtype="float64").dropna().to_numpy()
+    if arr.size == 0:
+        return np.nan, np.nan
+    rng = np.random.default_rng(seed)
+    boot_means = rng.choice(arr, size=(n_boot, arr.size), replace=True).mean(axis=1)
+    low, high = np.quantile(boot_means, [0.025, 0.975])
+    return float(low), float(high)
+
+
+def exact_sign_flip_p(values: Iterable[float]) -> float:
+    arr = pd.Series(list(values), dtype="float64").dropna().to_numpy()
+    if arr.size == 0:
+        return np.nan
+    observed = abs(float(arr.mean()))
+    null = [abs(float((arr * np.asarray(signs)).mean())) for signs in itertools.product((-1, 1), repeat=arr.size)]
+    return float(np.mean(np.asarray(null) >= observed - 1e-15))
+
+
+def paired_model_comparisons() -> pd.DataFrame:
+    ridge = read_csv(RIDGE_FOLD)
+    elastic = read_csv(ELASTICNET_FOLD)
+    xgb = read_csv(XGB_FOLD)
+    model_frames = {"Ridge": ridge, "ElasticNet": elastic, "XGBoost": xgb}
+    comparisons = [
+        ("annotation_augmented_xgb_vs_genetic_only", "XGBoost", "basic_plus_biochemical_full", "XGBoost", "genetic_only"),
+        ("xgb_basic_increment_over_full_regulatory", "XGBoost", "basic_plus_biochemical_full", "XGBoost", "biochemical_full_no_basic"),
+        ("ridge_basic_increment_over_full_regulatory", "Ridge", "basic_plus_biochemical_full", "Ridge", "biochemical_full_no_basic"),
+        ("elasticnet_basic_increment_over_full_regulatory", "ElasticNet", "basic_plus_biochemical_full", "ElasticNet", "biochemical_full_no_basic"),
+        ("xgb_vs_ridge_main_feature_set", "XGBoost", "basic_plus_biochemical_full", "Ridge", "basic_plus_biochemical_full"),
+        ("xgb_vs_elasticnet_main_feature_set", "XGBoost", "basic_plus_biochemical_full", "ElasticNet", "basic_plus_biochemical_full"),
+        ("xgb_main_vs_best_elasticnet", "XGBoost", "basic_plus_biochemical_full", "ElasticNet", "genetic_plus_biochemical_full"),
+    ]
+    rows = []
+    for comparison, model_a, group_a, model_b, group_b in comparisons:
+        a = model_frames[model_a].loc[
+            model_frames[model_a]["feature_group"] == group_a, ["cv_fold", "test_r2"]
+        ].rename(columns={"test_r2": "R²_A"})
+        b = model_frames[model_b].loc[
+            model_frames[model_b]["feature_group"] == group_b, ["cv_fold", "test_r2"]
+        ].rename(columns={"test_r2": "R²_B"})
+        merged = a.merge(b, on="cv_fold", validate="one_to_one").sort_values("cv_fold")
+        deltas = merged["R²_A"] - merged["R²_B"]
+        ci_low, ci_high = bootstrap_mean_ci(deltas)
+        rows.append(
+            {
+                "table_section": "paired_model_comparisons",
+                "comparison": comparison,
+                "sample_scope": "full_tabular_benchmark",
+                "model_A": model_a,
+                "feature_group_A": group_a,
+                "model_B": model_b,
+                "feature_group_B": group_b,
+                "N_folds": int(len(deltas)),
+                "mean_delta_R²_A_minus_B": float(deltas.mean()),
+                "SD_delta_R²": float(deltas.std(ddof=FOLD_SUMMARY_DDOF)),
+                "bootstrap_95%_CI_low": ci_low,
+                "bootstrap_95%_CI_high": ci_high,
+                "bootstrap_repeats": BOOTSTRAP_REPEATS,
+                "bootstrap_seed": BOOTSTRAP_SEED,
+                "exact_sign_flip_p_two_sided": exact_sign_flip_p(deltas),
+                "fold_delta_values": ";".join(f"{x:+.6f}" for x in deltas),
+                "N_positive_folds": int((deltas > 0).sum()),
+                "N_negative_folds": int((deltas < 0).sum()),
+                "caution": "Only five folds; effect size and directional consistency are emphasized over p-values.",
+            }
+        )
+    fusion = read_csv(FUSION_DELTA)
+    fusion = fusion.loc[fusion["method"] == "linear_fusion"].sort_values("cv_fold")
+    deltas = fusion["delta_test_r2_vs_xgb"].astype(float)
+    ci_low, ci_high = bootstrap_mean_ci(deltas)
+    rows.append(
+        {
+            "table_section": "paired_model_comparisons",
+            "comparison": "linear_fusion_vs_xgb_only",
+            "sample_scope": "paired_xgb_mrnalm_predictions",
+            "model_A": "Linear prediction-level fusion",
+            "feature_group_A": "XGBoost + mRNA-LM predictions",
+            "model_B": "XGBoost-only",
+            "feature_group_B": "basic_plus_biochemical_full",
+            "N_folds": int(len(deltas)),
+            "mean_delta_R²_A_minus_B": float(deltas.mean()),
+            "SD_delta_R²": float(deltas.std(ddof=FOLD_SUMMARY_DDOF)),
+            "bootstrap_95%_CI_low": ci_low,
+            "bootstrap_95%_CI_high": ci_high,
+            "bootstrap_repeats": BOOTSTRAP_REPEATS,
+            "bootstrap_seed": BOOTSTRAP_SEED,
+            "exact_sign_flip_p_two_sided": exact_sign_flip_p(deltas),
+            "fold_delta_values": ";".join(f"{x:+.6f}" for x in deltas),
+            "N_positive_folds": int((deltas > 0).sum()),
+            "N_negative_folds": int((deltas < 0).sum()),
+            "caution": "Only five folds; effect size and directional consistency are emphasized over p-values.",
+        }
+    )
     return pd.DataFrame(rows)
 
 
@@ -588,7 +700,8 @@ def build_s5() -> pd.DataFrame:
         ]
     )
 
-    return pd.concat([corr, corr_summary, coef, delta, delta_summary], ignore_index=True, sort=False)
+    paired = paired_model_comparisons()
+    return pd.concat([corr, corr_summary, coef, delta, delta_summary, paired], ignore_index=True, sort=False)
 
 
 def build_s6() -> pd.DataFrame:
@@ -609,12 +722,21 @@ def build_s6() -> pd.DataFrame:
         parts.append(direction)
 
     ablation = read_csv(ABLATION_SUMMARY)
+    ablation_fold = read_csv(ABLATION_FOLD)
+    metric_cols = [
+        col for col in ablation_fold.columns
+        if col.startswith("test_") and pd.api.types.is_numeric_dtype(ablation_fold[col])
+    ]
+    for feature_set, sub in ablation_fold.groupby("feature_set", sort=False):
+        mask = ablation["feature_set"] == feature_set
+        for col in metric_cols:
+            ablation.loc[mask, f"{col}_mean"] = float(sub[col].mean())
+            ablation.loc[mask, f"{col}_std"] = float(sub[col].std(ddof=FOLD_SUMMARY_DDOF))
     full = float(ablation.loc[ablation["feature_set"] == "full_basic_plus_biochemical_full", "test_r2_mean"].iloc[0])
     ablation["delta_R²_vs_full"] = ablation["test_r2_mean"] - full
     ablation["table_section"] = "feature_family_ablation_summary"
     parts.append(ablation)
 
-    ablation_fold = read_csv(ABLATION_FOLD)
     ablation_fold["table_section"] = "feature_family_ablation_fold_metrics"
     parts.append(ablation_fold)
     return pd.concat(parts, ignore_index=True, sort=False)
@@ -698,7 +820,7 @@ def write_index() -> pd.DataFrame:
         ("Supplementary Table S2", "supplementary_table_s2_identifier_split_overlap_audit.xlsx", "Identifier uniqueness, fold assignment, split-file consistency, and ENSID-level cross-fold overlap audit."),
         ("Supplementary Table S3", "supplementary_table_s3_feature_group_definitions_dimensions.xlsx", "Definitions, dimensions, source categories, and comparison purposes for the eight Saluki-derived feature groups."),
         ("Supplementary Table S4", "supplementary_table_s4_complete_fold_level_performance_metrics.xlsx", "Fold-level and summary performance metrics for mRNA-LM, Ridge, ElasticNet, XGBoost, and paired prediction-level fusion."),
-        ("Supplementary Table S5", "supplementary_table_s5_prediction_fusion_complementarity_diagnostics.xlsx", "Prediction/residual correlations, linear-fusion coefficients, fold-wise fusion delta R², and paired fusion diagnostics."),
+        ("Supplementary Table S5", "supplementary_table_s5_prediction_fusion_complementarity_diagnostics.xlsx", "Prediction/residual correlations, linear-fusion coefficients, fold-wise fusion delta R², paired model comparisons, bootstrap confidence intervals, and sign-flip summaries."),
         ("Supplementary Table S6", "supplementary_table_s6_shap_feature_family_interpretation.xlsx", "Top SHAP features, family-level SHAP summaries, normalized family SHAP metrics, and feature-family ablation results."),
         ("Supplementary Table S7", "supplementary_table_s7_fusion_gain_sample_profile_case_studies.xlsx", "Fusion-gain group definitions, group summaries, helped-vs-hurt comparisons, and top helped/hurt case studies."),
         ("Supplementary Table S8", "supplementary_table_s8_motif_kmer_region_composition_checks.xlsx", "3-mer, 4-mer, predefined motif, region length, and GC comparisons between fusion-helped and fusion-hurt transcripts."),
@@ -735,6 +857,18 @@ def sheet_name(raw: str, used: set[str]) -> str:
 
 def compact_sheet(df: pd.DataFrame) -> pd.DataFrame:
     out = df.dropna(axis=1, how="all").copy()
+    repo_root_variants = {str(PROJECT_ROOT), str(PROJECT_ROOT).replace("\\", "/")}
+    for col in out.select_dtypes(include="object").columns:
+        out[col] = out[col].map(
+            lambda value: next(
+                (
+                    str(value).replace(root, "${REPO_ROOT}")
+                    for root in repo_root_variants
+                    if isinstance(value, str) and root in value
+                ),
+                value,
+            )
+        )
     if "table_section" in out.columns:
         cols = ["table_section"] + [c for c in out.columns if c != "table_section"]
         out = out[cols]
@@ -798,6 +932,16 @@ def audit(tables: dict[str, pd.DataFrame], outputs: dict[str, Path]) -> str:
         checks.append(check_close(f"S5 {quantity} {metric}", obs, expected))
     deltas = s5.loc[s5["table_section"] == "linear_fusion_delta_R²", "delta_R²_vs_XGBoost"].dropna().round(4).tolist()
     checks.append({"check": "S5 fusion delta values", "observed": ";".join(f"{x:+.4f}" for x in deltas), "expected": "+0.0281;+0.0220;+0.0220;+0.0217;+0.0269", "difference": "", "status": "pass" if deltas == [0.0281, 0.0220, 0.0220, 0.0217, 0.0269] else "conflict"})
+    paired = s5[s5["table_section"] == "paired_model_comparisons"]
+    checks.append(
+        {
+            "check": "S5 paired comparisons include bootstrap CI",
+            "observed": int(paired["bootstrap_95%_CI_low"].notna().sum()),
+            "expected": int(len(paired)),
+            "difference": int(len(paired) - paired["bootstrap_95%_CI_low"].notna().sum()),
+            "status": "pass" if paired["bootstrap_95%_CI_low"].notna().all() else "conflict",
+        }
+    )
 
     s6 = tables["S6"]
     fam = s6[s6["table_section"] == "feature_family_shap_summary"]
@@ -888,8 +1032,8 @@ def audit(tables: dict[str, pd.DataFrame], outputs: dict[str, Path]) -> str:
             "repair_needed": "none",
         },
         "S5": {
-            "source_files": repo_paths(FUSION_PRED_TEST, FUSION_COEFFICIENTS, FUSION_DELTA),
-            "source_status": "renamed and merged from old S6/S7 plus raw fusion predictions",
+            "source_files": repo_paths(FUSION_PRED_TEST, FUSION_COEFFICIENTS, FUSION_DELTA, RIDGE_FOLD, ELASTICNET_FOLD, XGB_FOLD),
+            "source_status": "merged from fusion predictions, prediction/residual correlations, and fold-aligned tabular metrics; paired bootstrap/sign-flip summaries added",
             "required_content_status": "complete",
             "missing_fields": "none",
             "repair_needed": "none",

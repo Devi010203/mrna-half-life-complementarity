@@ -32,7 +32,7 @@ ABLATION_LABELS = {
     "only_rip": "RIP only",
     "only_encori": "ENCORI only",
     "only_eclip": "eCLIP only",
-    "only_regulatory_no_basic": "Full regulatory/biochemical annotations only",
+    "only_regulatory_no_basic": "Full regulatory only",
 }
 
 
@@ -88,17 +88,17 @@ def main():
             va="center",
             ha="left",
             fontsize=6.5,
-            color="#555555",
+            color="black",
         )
     ax_norm.text(
         0.98,
-        0.98,
+        0.46,
         "labels: top-50 features / family size",
         transform=ax_norm.transAxes,
         ha="right",
         va="top",
         fontsize=6.2,
-        color="#555555",
+        color="black",
     )
 
     ax_top.barh(top["feature"], top["mean_abs_shap"], color="#808080", zorder=2)

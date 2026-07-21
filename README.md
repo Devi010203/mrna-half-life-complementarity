@@ -109,6 +109,8 @@ The included frozen summaries support the following five-fold human results:
 | Permuted-label XGBoost control | -0.0030 +/- 0.0072 |
 | Permuted-label Ridge control | -0.0095 +/- 0.0101 |
 
+All fold-level mean +/- SD summaries use the population standard deviation across the five fixed outer folds (`ddof = 0`). Supplementary Table S5 contains prediction/residual correlations, fusion coefficients, paired fold differences, 5,000-resample bootstrap intervals, and exact sign-flip summaries. The current clean family-ablation decreases are 0.0160 for BASIC, 0.0229 for ENCORI, 0.0599 for RIP, and 0.1167 for RIP plus ENCORI.
+
 The same 12,981 transcripts and five outer folds are used in the current human analysis. Fusion remains an explicitly paired prediction experiment: coefficients are fitted on fold-aligned validation predictions and evaluated on the corresponding held-out test predictions.
 
 ## Data and checkpoint availability
