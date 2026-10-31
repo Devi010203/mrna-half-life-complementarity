@@ -1,124 +1,98 @@
-# Pretrained mRNA predictions complement regulatory annotations for half-life prediction
+# mRNA stability: complementarity and transfer limits
 
-This repository contains the reproducibility code, frozen analysis outputs, figures, and supplementary tables for a systematic comparison of sequence-only and annotation-augmented predictors of human mRNA half-life.
+Code and saved predictions accompanying **Complementarity and transfer limits of
+sequence- and feature-based mRNA stability prediction in human and mouse**.
 
-The central analysis uses the Saluki-released human mRNA half-life resource. A pretrained mRNA-LM predictor supplies sequence-only predictions, while Ridge, ElasticNet, and XGBoost use Saluki-derived transcript-architecture, sequence-statistical, biochemical, and regulatory feature groups. Prediction-level linear fusion tests whether the two prediction sources contain non-redundant information.
+This repository reproduces statistics, main tables and approved figures from
+saved gene-level predictions. The default workflow is CPU-only and performs no
+model training, weight-based inference, fusion fitting or model selection.
 
-This is a comparison and complementarity analysis, not a new Saluki dataset release or a claim that the reported models replace Saluki. SHAP, feature-family ablation, motif/k-mer, and case-study analyses are predictive or hypothesis-generating and do not establish causal mechanisms.
+## Run
 
-## Repository layout
-
-```text
-.
-|-- config/                  # Environment-variable examples
-|-- data/                    # Data placement documentation and public split file
-|-- models/                  # Checkpoint placement documentation
-|-- results/
-|   |-- frozen/              # Frozen numeric inputs used by figures and tables
-|   `-- runs/                # Outputs from new local or cluster runs (ignored by Git)
-|-- scripts/
-|   |-- models/              # mRNA-LM and tabular model training
-|   |-- analysis/            # Fusion, controls, SHAP, ablation, and profiling
-|   |-- figures/             # Main and supplementary figure scripts
-|   `-- tables/              # Supplementary table generation
-|-- figures/                 # Publication figures and plotted-data CSV files
-|-- tables/                  # Supplementary Table S1-S9 workbooks
-|-- slurm/                   # Portable SLURM submission templates
-`-- docs/                    # Reproducibility and data-dictionary notes
-```
-
-## Reproducibility levels
-
-### 1. Reproduce figures from frozen outputs
-
-The compact files under `results/frozen/` are sufficient to regenerate the main and supplementary figures without redistributing the Saluki feature matrices or pretrained checkpoints.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run from
+this directory:
 
 ```bash
-python -m venv .venv
-python -m pip install --upgrade pip
-python -m pip install -e .
-python scripts/check_setup.py
-python scripts/make_all_figures.py
+uv sync --locked
+uv run python scripts/reproduce.py
 ```
 
-Each figure is written to `figures/` as PDF, PNG, and SVG, together with a `*_plotted_data.csv` audit file.
+The locked analysis environment uses Python 3.12. Each run creates a new
+`outputs/reproduction_<timestamp>/` directory. No input or reference file is
+overwritten. `REPRODUCTION_REPORT.json` records executed commands, exit status,
+recalculated analyses and display-only results. A failed numerical comparison
+stops the workflow. The full local validation took about 9 minutes on two CPU
+workers; runtime varies with hardware. Allow at least 1 GB of working disk space
+in addition to the Python environment. No GPU or R installation is required.
 
-The supplied Supplementary Table S1-S9 workbooks in `tables/` are the release-ready tables generated from the frozen analysis. Regenerating all workbook sheets from raw inputs additionally requires the processed human target table described below.
-
-### 2. Re-run models and analyses
-
-Full model reproduction requires data and model files that are not redistributed here. Obtain them from their original resources and place them according to [data/README.md](data/README.md) and [models/README.md](models/README.md). No script contains a user-specific workstation or cluster path; paths default to locations inside this repository and can be overridden with environment variables.
-
-Install the deep-learning dependencies when training mRNA-LM:
+The default includes 5,000 paired bootstrap draws for human/external comparisons,
+mouse/ortholog analyses, all 27 mouse measurements, all 16 human contexts, and
+the matched distillation analyses. It generates Tables 1–3, three supplementary
+workbooks, and Figures 1–4/S1 in PNG, PDF and SVG. The bundled approved PNG/PDF
+files remain unchanged. Arial is used when installed; otherwise Matplotlib's
+sans-serif fallback may change text layout, not data or statistics. Fonts are
+not redistributed.
 
 ```bash
-python -m pip install -e ".[mrnalm]"
+# Quick input, dependency-closure and frozen split checks (no model execution):
+uv run python tests/test_release.py
+# Optional faster run: context/measurement points only; their CIs remain LEVEL1.
+uv run python scripts/reproduce.py --core-only
 ```
 
-The high-level execution order is:
+## Contents
 
-1. Train the AggHead and optional SeqHead mRNA-LM predictors across five folds.
-2. Merge fold-specific mRNA-LM validation and test predictions.
-3. Train Ridge, ElasticNet, and XGBoost on the eight feature groups.
-4. Fit prediction-level linear fusion using validation predictions only.
-5. Run permutation controls, TreeSHAP, feature-family ablation, fusion-gain profiling, motif/k-mer checks, and case-study summaries.
-6. Regenerate supplementary tables and figures.
+| Directory | Purpose |
+|---|---|
+| `data/` | Canonical human (12,981 genes), external (11,381), mouse (13,744), 27 measurement targets, all saved SHAP values and 116,829 distillation records |
+| `scripts/` | Statistical tests, bootstrap, main tables, approved figure renderer and optional R target construction |
+| `results/` | Frozen numerical references used to check recalculation |
+| `figures/` | Approved Figure 1–4/S1 PNG and PDF files |
+| `supplementary/` | ESM PDF and three multi-sheet XLSX workbooks for readers |
+| `training/` | Optional scientific implementations/configurations; separate Python 3.11 uv lock, missing resources documented |
+| `docs/` | Data dictionary, estimands, reproduction scope and per-file source/license manifest |
+| `tests/` | Data/split/implementation checks and opt-in clean-run guard |
 
-Detailed commands and dependencies are provided in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). Cluster users can adapt the templates under `slurm/` without editing Python source files.
+CSV/NPZ files are computational inputs/references; XLSX workbooks are the
+reader-facing supplement. Repeated per-model OOF copies are not needed: all
+human predictions share one table and distillation arm/seed views are generated
+in memory. `Common-XGB` is the compact 1,027-feature model, never Common-Full.
 
-Run the frozen-result regression tests with the standard library test runner:
+## Reproduction scope
 
-```bash
-python -m unittest discover -s tests -v
-```
+**LEVEL2** means actual point estimates and the stated intervals were recomputed
+from saved per-gene targets/predictions and compared with frozen references.
+**LEVEL1** means a saved result was read, checked or redrawn, without regenerating
+the underlying analysis. Training/inference (**LEVEL3**) is not self-contained.
+See [coverage and limitations](docs/reproduction_scope.md),
+[statistical definitions](docs/statistical_protocol.md) and
+[data sources/dictionary](docs/data_sources.md).
 
-## Primary entry points
+SHAP uses all saved values (124-feature union, not a complete 559-feature matrix);
+Figure 1d displays Top20. These attributions come from a separate interpretation
+model, not the benchmark checkpoints. Negative and uncertain results, including
+both Simon MEF measurements and Koszinowski, remain in the release.
 
-```bash
-# Tabular models
-python scripts/models/train_ridge.py
-python scripts/models/train_xgboost.py
+External-PC1 construction from the saved processed raw matrices is an optional
+[separate R workflow](environments/r/README.md). Primary, context-balanced and
+no-QN targets were rebuilt in a fresh R environment and matched the frozen CSV
+values exactly. The Primary target's 13,630 genes, direction, 11,381 matched
+genes and specified model correlations were verified. All 14 leave-one-dataset-out
+targets were generated and checked against stored gene counts and summary
+statistics; original per-gene LODO references were not bundled for value-by-value
+comparison. This is processed-matrix reconstruction, not sequencing-read
+reanalysis, and is separate from the default Python workflow. It does not rerun
+Balanced/No-QN model-performance or target-concordance intervals. Restore the
+recorded preprocessCore source-build option before running the R scripts.
 
-# Sequence-only predictor
-python scripts/models/train_mrnalm_agghead_lora.py
-python scripts/analysis/merge_mrnalm_predictions.py
+## Citation and licensing
 
-# Fusion and interpretation
-python scripts/analysis/late_fusion.py
-python scripts/analysis/permutation_control.py
-python scripts/analysis/shap_interpretability.py
-python scripts/analysis/feature_family_ablation.py
-python scripts/analysis/fusion_gain_profile.py
-python scripts/analysis/motif_kmer_checks.py
-python scripts/analysis/case_studies.py
-python scripts/analysis/helped_hurt_shap.py
-```
-
-Within each model run, preprocessing, model selection, calibration, and fusion fitting are confined to training/validation data. Held-out test-fold predictions are used only for final evaluation.
-
-## Frozen reference results
-
-The included frozen summaries support the following five-fold human results:
-
-| Analysis | Test R2, mean +/- SD |
-|---|---:|
-| AggHead mRNA-LM, sequence only | 0.4436 +/- 0.0112 |
-| XGBoost, full regulatory/biochemical + BASIC | 0.6766 +/- 0.0057 |
-| Best ElasticNet feature group | 0.6374 +/- 0.0141 |
-| Linear prediction-level fusion | 0.7008 +/- 0.0080 |
-| Permuted-label XGBoost control | -0.0030 +/- 0.0072 |
-| Permuted-label Ridge control | -0.0095 +/- 0.0101 |
-
-All fold-level mean +/- SD summaries use the population standard deviation across the five fixed outer folds (`ddof = 0`). Supplementary Table S5 contains prediction/residual correlations, fusion coefficients, paired fold differences, 5,000-resample bootstrap intervals, and exact sign-flip summaries. The current clean family-ablation decreases are 0.0160 for BASIC, 0.0229 for ENCORI, 0.0599 for RIP, and 0.1167 for RIP plus ENCORI.
-
-The same 12,981 transcripts and five outer folds are used in the current human analysis. Fusion remains an explicitly paired prediction experiment: coefficients are fitted on fold-aligned validation predictions and evaluated on the corresponding held-out test predictions.
-
-## Data and checkpoint availability
-
-The repository does not redistribute Saluki feature tables, processed sequence files, or pretrained mRNA-LM checkpoints. Their licenses and access conditions remain those of the original sources. The fold assignment used by the analysis is included at `data/processed/human/splits/cv_k5_seed42.csv`.
-
-Before public release, update the manuscript citation, dataset URLs, checkpoint URLs, authors, and repository DOI in `CITATION.cff.template` and the associated manuscript Data Availability statement.
-
-## License
-
-The repository code is released under the [MIT License](LICENSE). Dataset files, pretrained checkpoints, and third-party resources remain subject to their original licenses and terms of use.
+Authors: Xu Jin, Bihang Cui, Yingchen Mao and Dinglin Zhang. Use `CITATION.cff`
+and cite the source datasets when reusing their data. Original software is
+licensed under MIT. Author-owned new data and original Figure 1–4/S1
+visualization contributions are covered by CC BY 4.0 within the scope described
+in [DATA_LICENSES.md](DATA_LICENSES.md); third-party components retain their
+source terms. The complete manuscript and ESM_1 scholarly prose are not covered
+by this data grant. See the [file manifest](docs/file_manifest.csv) and
+[supplementary rights guide](supplementary/README.md) for mixed-file boundaries
+and source-specific conditions. No model weights are bundled.

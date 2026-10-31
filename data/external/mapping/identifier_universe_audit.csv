@@ -1,0 +1,4 @@
+universe,total_rows,primary_id_column,unique_primary_ids,missing_primary_ids,symbol_column,unique_symbols,missing_symbols,duplicate_symbol_rows,duplicate_symbol_values,leading_or_trailing_whitespace_symbols,case_variant_groups,ensg_column,unique_ensg,missing_ensg,duplicate_ensg_rows,duplicate_ensg_values
+External-PC1,13630,feature_ID,13630,0,feature_ID,13630,0,0,0,0,0,,0,0,0,0
+Saluki official human PC1,13921,ensembl_gene_id,13921,0,external_gene_name,13920,1,0,0,0,0,ensembl_gene_id,13921,0,0,0
+"Current 12,981 analysis",12981,ENSID,12981,0,gene_symbol,12981,0,0,0,0,0,ENSID,12981,0,0,0

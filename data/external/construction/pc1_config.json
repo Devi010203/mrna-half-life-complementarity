@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "representation": "-log(kdeg)",
+  "primary_threshold": 10,
+  "scaling": "base::scale with sample SD",
+  "estim_ncpPCA": {
+    "ncp_min": 0,
+    "requested_ncp_max": 20,
+    "effective_ncp_max": 20,
+    "method": "Regularized",
+    "scale": true,
+    "method_cv": "gcv",
+    "selected_ncp": 12,
+    "randomness": "default gcv path is deterministic; additional seed sweep not applicable"
+  },
+  "imputation": "missMDA::imputePCA with selected ncp and package defaults after set.seed(42)",
+  "normalization": "preprocessCore::normalize.quantiles",
+  "pca": "stats::prcomp(center=TRUE default, scale.=FALSE default)",
+  "orientation_median_pearson": -0.8861,
+  "orientation_multiplier": -1,
+  "context_balanced": {
+    "threshold": 10,
+    "contexts": 16,
+    "genes": 9786,
+    "selected_ncp": 4,
+    "effective_ncp_max": 15
+  },
+  "lodo_workers": 4,
+  "model_predictions_read": false
+}

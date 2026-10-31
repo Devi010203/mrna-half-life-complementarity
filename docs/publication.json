@@ -1,0 +1,60 @@
+{
+  "title": "Complementarity and transfer limits of sequence- and feature-based mRNA stability prediction in human and mouse",
+  "authors": [
+    "Xu Jin",
+    "Bihang Cui",
+    "Yingchen Mao",
+    "Dinglin Zhang"
+  ],
+  "author_details": [
+    {
+      "name": "Xu Jin",
+      "affiliations": [
+        1,
+        2
+      ],
+      "corresponding": false,
+      "orcid": "0009-0007-7776-0541",
+      "credit": "Conceptualization, Methodology, Software, Formal analysis, Investigation, Data curation, Visualization, Writing – original draft"
+    },
+    {
+      "name": "Bihang Cui",
+      "affiliations": [
+        1
+      ],
+      "corresponding": false,
+      "orcid": "0009-0008-5280-7419",
+      "credit": "Investigation, Data curation"
+    },
+    {
+      "name": "Yingchen Mao",
+      "affiliations": [
+        2
+      ],
+      "corresponding": true,
+      "email": "myc@lnnu.edu.cn",
+      "orcid": "0000-0002-2469-054X",
+      "credit": "Supervision, Project administration"
+    },
+    {
+      "name": "Dinglin Zhang",
+      "affiliations": [
+        1,
+        3
+      ],
+      "corresponding": true,
+      "email": "dlzhang@dicp.ac.cn",
+      "orcid": "0000-0002-9674-0577",
+      "credit": "Conceptualization, Supervision, Methodology, Writing – review & editing"
+    }
+  ],
+  "affiliations": {
+    "1": "Interdisciplinary Research Center for Biology and Chemistry, Liaoning Normal University, Dalian, 116029, China",
+    "2": "School of Physics and Electronic Technology, Liaoning Normal University, Dalian 116029, China",
+    "3": "Laboratory of Molecular Modeling and Design, State Key Laboratory of Molecular Reaction Dynamics, Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian, 116023, China"
+  },
+  "repository_url": "https://github.com/Devi010203/mrna-half-life-complementarity",
+  "version": "0.2.0.dev0",
+  "code_license": "MIT",
+  "data_and_third_party_terms": "DATA_LICENSES.md"
+}

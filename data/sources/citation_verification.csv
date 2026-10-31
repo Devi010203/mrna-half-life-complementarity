@@ -1,0 +1,16 @@
+dataset,repository_pmid,verified_source_pmid,doi,status,note
+Finkel_etal_2021_Calu3,35313595,33979833,10.1038/s41586-021-03610-3,mismatch_corrected_in_supplement_only,Zenodo PMID 35313595 points to a related 2022 NSP1 study; source GSE162323 cites Nature 2021 DOI 10.1038/s41586-021-03610-3.
+Harada_etal_2022_MV411,35301220,35301220,10.1101/gad.349284.121,verified,
+Ietswaart_etal_2024_K562,38964322,38964322,10.1016/j.molcel.2024.06.008,verified,
+Luo_etal_2020_HEK293T,33357462,32365300,10.1021/acs.biochem.0c00069,mismatch_corrected_in_supplement_only,Zenodo PMID 33357462 points to a related inhibitor study; source GSE143662 cites PMID 32365300. Preserve original run identities.
+Mabin_etal_2025_HEK293T,40161772,40161772,10.1101/2025.03.12.642874,verified,Zenodo v1.1 explicitly documented unpublished raw data at release. Later publication DOI 10.1186/s13059-026-04204-w provides GSE289489; alias mapping is retrospective and provisional.
+Mowery_etal_2018_Nalm6,30428356,30428356,10.1016/j.celrep.2018.10.061,verified,
+Muhar_etal_2018_many,29622725,29622725,10.1126/science.aao2793,verified,
+Narain_etal_2021_U2OS,34233157,34233157,10.1016/j.molcel.2021.06.016,verified,
+Schofield_etal_2018_K562,29355846,29355846,10.1038/nmeth.4582,verified,
+Sheppard_etal_2021_CH22,33521702,33521702,10.1016/j.xcrm.2020.100188,verified,
+Swartzel_etal_2022_MOLM14,35749470,35749470,10.1021/acschembio.2c00145,verified,
+Thiecke_etal_2020_HeLa,32698000,32698000,10.1016/j.celrep.2020.107929,verified,
+Williams_etal_2025_MDAMB,39753105,39753105,10.1016/j.molcel.2024.12.008,verified,
+Zhou_etal_2024_HEK293T,39577428,39577428,10.1016/j.molcel.2024.10.033,verified,
+Zuckerman_etal_2020_MCF7,32504555,32504555,10.1016/j.molcel.2020.05.013,verified,

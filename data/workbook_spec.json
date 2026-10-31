@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "no_new_scientific_calculation": true,
+  "workbooks": [
+    {
+      "file": "ESM_2_Supplementary_Tables_S1-S12.xlsx",
+      "sheets": [
+        {
+          "sheet": "S1",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S1",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S2",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S2",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S3",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S3",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S4a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S4a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S4b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S4b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S4c",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S4c",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S5a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S5a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S5b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S5b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S6a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S6a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S6b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S6b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S6c",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S6c",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S7",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S7",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S8",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S8",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S9a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S9a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S9b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S9b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S9c",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S9c",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S10a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S10a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S10b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S10b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S11a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S11a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S11b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S11b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S11c",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S11c",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S12a",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S12a",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S12b",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S12b",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        },
+        {
+          "sheet": "S12c",
+          "source": "data/sources/supplementary_display.xlsx",
+          "source_sheet": "S12c",
+          "kind": "xlsx",
+          "sha256": "82d20dd8f6c9089391f9dc1ab9c5897c8db290834e8691c41b2a88f0b848b2c7"
+        }
+      ]
+    },
+    {
+      "file": "ESM_3a_Source_Statistics_S9-S11.xlsx",
+      "sheets": [
+        {
+          "sheet": "Human_Pooled",
+          "source": "results/unified/human_pooled_oof_metrics.csv",
+          "kind": "csv",
+          "sha256": "a99ae3ec2e3eba23ada1e6be9b997ae46bdff8ee3797e44661746ff047431a7f"
+        },
+        {
+          "sheet": "Human_Paired_Deltas",
+          "source": "results/unified/human_pooled_oof_paired_deltas.csv",
+          "kind": "csv",
+          "sha256": "1e4ec65949e17fe366b80814d20c8886b5d498d165c892f99f82be8326d863ca"
+        },
+        {
+          "sheet": "Human_Five_Fold",
+          "source": "results/unified/human_five_fold_summary.csv",
+          "kind": "csv",
+          "sha256": "de76bb7400978ca6a30dcdd6b6e965e66dc6b3e8e69a97ce39ba01e173f509c4"
+        },
+        {
+          "sheet": "Human_All_Folds",
+          "source": "results/unified/human_fold_metrics.csv",
+          "kind": "csv",
+          "sha256": "feb46d9382938833efbb13ea6618405a7676ebffc6d3a95b9c0386cf5302d3b2"
+        },
+        {
+          "sheet": "External_Models",
+          "source": "results/unified/external_human_metrics.csv",
+          "kind": "csv",
+          "sha256": "3acece42970abed0a2a329b3a8585fa0084a52e140a9b356970fd66360d57da1"
+        },
+        {
+          "sheet": "External_Paired_Deltas",
+          "source": "results/unified/external_human_paired_deltas.csv",
+          "kind": "csv",
+          "sha256": "25936907b1cddb581b7acf758f262b823d18d3df4516483ea1fcdcbeb1371f74"
+        },
+        {
+          "sheet": "Coverage_Groups",
+          "source": "results/unified/coverage_status_counts.csv",
+          "kind": "csv",
+          "sha256": "cdf097d41f6e2d6de662045a2eaf3b1c1ef002b74dd9a5a0fceac90c269418a1"
+        },
+        {
+          "sheet": "Coverage_Internal_OOF",
+          "source": "results/unified/coverage_internal_oof_metrics.csv",
+          "kind": "csv",
+          "sha256": "4d311b1b786b6c32d9c4185ec6db845c84633bc7071bf0f284aff8f175b77d52"
+        },
+        {
+          "sheet": "Coverage_Descriptions",
+          "source": "results/unified/coverage_descriptive_statistics.csv",
+          "kind": "csv",
+          "sha256": "874833fd421939e6d024e632ddf54538be15c78acde01217cc5d5b2f59ae084a"
+        },
+        {
+          "sheet": "Coverage_Differences",
+          "source": "results/unified/coverage_standardized_differences.csv",
+          "kind": "csv",
+          "sha256": "3467c6da2bd08831df813445add014dde1832cd75d02a0e1a67ce71954b1c9ac"
+        }
+      ]
+    },
+    {
+      "file": "ESM_3b_Source_Provenance_S12.xlsx",
+      "sheets": [
+        {
+          "sheet": "External_Datasets",
+          "source": "data/sources/external_dataset_provenance.csv",
+          "kind": "csv",
+          "sha256": "d606305b948ab0a237160cc4eb31b4434808fc3b3d6efd3b2c24d87c69d7f2e7"
+        },
+        {
+          "sheet": "External_Samples",
+          "source": "data/sources/external_sample_provenance.csv",
+          "kind": "csv",
+          "sha256": "412553f781cc2b0bcc73dde0009399a0e0659b29dc6157d74bea13e1cb5467ea"
+        },
+        {
+          "sheet": "Mabin_Accessions",
+          "source": "data/sources/mabin_accession_crosswalk.csv",
+          "kind": "csv",
+          "sha256": "4edc03cb7256e212d639c521d4526a2d1806390fa794e4e2402b93dd5bc6f456"
+        },
+        {
+          "sheet": "Citation_Verification",
+          "source": "data/sources/citation_verification.csv",
+          "kind": "csv",
+          "sha256": "b2555b24235ce894e2c06a9e9476f8c508617aa6106ec1911b4f9876b7eea56a"
+        },
+        {
+          "sheet": "Saluki_Human_Sources",
+          "source": "data/sources/saluki_human_source_inventory.csv",
+          "kind": "csv",
+          "sha256": "d0b1429912df168ed4097aa5be184ec9d64d2e544b50a1dd72faae60a2e08e1b"
+        },
+        {
+          "sheet": "Saluki_Script_Crosswalk",
+          "source": "data/sources/saluki_script_source_crosswalk.csv",
+          "kind": "csv",
+          "sha256": "be024746fdea72c715d135a95ead1accc46c23c0c5e29494b6ccac32857231ea"
+        }
+      ]
+    }
+  ]
+}

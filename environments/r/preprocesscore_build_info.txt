@@ -1,0 +1,17 @@
+Package: preprocessCore
+Version: 1.72.0
+Source: https://bioconductor.org/packages/3.22/bioc/src/contrib/preprocessCore_1.72.0.tar.gz
+SHA256: 4472052371147cfbf91d223eb15f3b030d236de9b4bba6b58a205c368d53884d
+Configure arguments: --disable-threading
+Source license: LGPL (>= 2)
+
+The original successful scientific environment rebuilt this exact official source
+with its supported --disable-threading option. Conda's package record alone does
+not capture that source override. Its binary package can fail on this host with
+pthread_create() return code 22 even when R_THREADS=1.
+
+Reproduce the source override after creating the recorded conda environment.
+This preserves version 1.72.0 and the normalization algorithm; it disables only
+the internal threaded implementation. The dependency source/binary is not bundled
+with this repository. See README.md in this directory for installation and smoke
+test commands. A version-number check alone is insufficient.

@@ -1,0 +1,13 @@
+variable,matched_n_observed,unmatched_n_observed,mean_difference,standardized_mean_difference,definition
+target,11381,1600,0.7536460332961121,0.1667178258674818,matched_minus_unmatched; observed_values_only
+UTR5LEN,11381,1600,7.505660091380378,0.028048468531245152,matched_minus_unmatched; observed_values_only
+CDSLEN,11381,1600,176.5922493080575,0.10868576590175179,matched_minus_unmatched; observed_values_only
+INTRONLEN,11381,1600,2875.215100441528,0.023241224784222487,matched_minus_unmatched; observed_values_only
+UTR3LEN,11381,1600,563.7426065921272,0.3146156105562037,matched_minus_unmatched; observed_values_only
+UTR5GC,11381,1600,0.032175049534311606,0.2819841502615325,matched_minus_unmatched; observed_values_only
+CDSGC,11381,1600,-0.03996468950443732,-0.45493585121013524,matched_minus_unmatched; observed_values_only
+UTR3GC,11381,1600,-0.034726811297337734,-0.3232135620336523,matched_minus_unmatched; observed_values_only
+TOTAL_LEN_SEQ,11381,1600,749.7210678982515,0.2987809626701013,matched_minus_unmatched; observed_values_only
+n_measurements,11381,910,42.27903658594283,3.6104859696485128,matched_minus_unmatched; observed_values_only
+n_datasets,11381,910,9.535715782328557,3.8617007969518045,matched_minus_unmatched; observed_values_only
+n_cell_lines,11381,910,7.414946445347992,3.7209297424803114,matched_minus_unmatched; observed_values_only

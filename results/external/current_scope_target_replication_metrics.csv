@@ -1,0 +1,2 @@
+analysis_id,scope,external_target,saluki_target,n_genes,spearman,pearson,bootstrap_iterations,bootstrap_seed,spearman_bootstrap_median,spearman_bootstrap_ci95_low,spearman_bootstrap_ci95_high,pearson_bootstrap_median,pearson_bootstrap_ci95_low,pearson_bootstrap_ci95_high
+primary_current_12981,current_12981,External-PC1 Primary,Current HALFLIFE (exactly identical to official human_PC1),11381,0.9199676759622858,0.9202637857926974,5000,42,0.9199251843318529,0.9162090154158773,0.9235039513736029,0.9202900331098729,0.9167425061888584,0.9235412676693111

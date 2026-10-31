@@ -1,0 +1,7 @@
+feature_set,feature_role,scope,model,n,spearman_rho,pearson_r,is_primary,bootstrap_replicates,bootstrap_seed,spearman_bootstrap_median,spearman_ci_lower,spearman_ci_upper,pearson_bootstrap_median,pearson_ci_lower,pearson_ci_upper
+full,SENSITIVITY,ALL_MOUSE,pred_fold0,13744,0.6094787109090128,0.6167541698061872,False,,,,,,,,
+full,SENSITIVITY,ALL_MOUSE,pred_fold1,13744,0.6076996287821241,0.6147983755671694,False,,,,,,,,
+full,SENSITIVITY,ALL_MOUSE,pred_fold2,13744,0.6089111621337702,0.6183133456431841,False,,,,,,,,
+full,SENSITIVITY,ALL_MOUSE,pred_fold3,13744,0.6104893969196434,0.6192533039681071,False,,,,,,,,
+full,SENSITIVITY,ALL_MOUSE,pred_fold4,13744,0.6030978833760603,0.610819518701176,False,,,,,,,,
+full,SENSITIVITY,ALL_MOUSE,pred_ensemble,13744,0.6130635294144542,0.6210922173794635,False,5000.0,42.0,0.6129152691576281,0.6011401692624944,0.6246316200991657,0.6209128016014127,0.609391895058053,0.6323136064414326

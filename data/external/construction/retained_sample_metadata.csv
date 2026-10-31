@@ -1,0 +1,63 @@
+sample,dataset,cell_line,label_time,method,library_type,replicate,control_status,condition,matching_candidates,crosswalk_status,baseline_eligible,decision,include_primary_consensus
+DMSO_1,Mabin_etal_2025_HEK293T,HEK293,2,TimeLapse-seq,full_length,1,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+DMSO_2,Mabin_etal_2025_HEK293T,HEK293,2,TimeLapse-seq,full_length,2,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+DMSO_3,Mabin_etal_2025_HEK293T,HEK293,2,TimeLapse-seq,full_length,3,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316942,Zuckerman_etal_2020_MCF7,MCF7,2,SLAM-seq,full_length,1,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316943,Zuckerman_etal_2020_MCF7,MCF7,2,SLAM-seq,full_length,2,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316944,Zuckerman_etal_2020_MCF7,MCF7,4,SLAM-seq,full_length,1,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316945,Zuckerman_etal_2020_MCF7,MCF7,4,SLAM-seq,full_length,2,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316946,Zuckerman_etal_2020_MCF7,MCF7,8,SLAM-seq,full_length,1,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316947,Zuckerman_etal_2020_MCF7,MCF7,8,SLAM-seq,full_length,2,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10316948,Zuckerman_etal_2020_MCF7,MCF7,8,SLAM-seq,full_length,3,non-targeting siRNA control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10887642,Luo_etal_2020_HEK293T,HEK293,2,TimeLapse-seq,full_length,1,WT/control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10887643,Luo_etal_2020_HEK293T,HEK293,2,TimeLapse-seq,full_length,2,WT/control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10887648,Luo_etal_2020_HEK293T,HEK293,2,TimeLapse-seq,full_length,3,WT/control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR10887649,Luo_etal_2020_HEK293T,HEK293,2,TimeLapse-seq,full_length,4,WT/control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR11142916,Thiecke_etal_2020_HeLa,HeLa,1,SLAM-seq,3prime,1,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR11142918,Thiecke_etal_2020_HeLa,HeLa,1,SLAM-seq,3prime,2,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR11142920,Thiecke_etal_2020_HeLa,HeLa,1,SLAM-seq,3prime,3,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR12168632,Sheppard_etal_2021_CH22,CH22,7,SLAM-seq,3prime,1,parental DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR12168633,Sheppard_etal_2021_CH22,CH22,7,SLAM-seq,3prime,2,parental DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR12168634,Sheppard_etal_2021_CH22,CH22,7,SLAM-seq,3prime,3,parental DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159432,Narain_etal_2021_U2OS,U2OS,1,SLAM-seq,3prime,1,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159433,Narain_etal_2021_U2OS,U2OS,1,SLAM-seq,3prime,2,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159434,Narain_etal_2021_U2OS,U2OS,1,SLAM-seq,3prime,3,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159438,Narain_etal_2021_U2OS,U2OS,2,SLAM-seq,3prime,1,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159439,Narain_etal_2021_U2OS,U2OS,2,SLAM-seq,3prime,2,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159440,Narain_etal_2021_U2OS,U2OS,2,SLAM-seq,3prime,3,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159444,Narain_etal_2021_U2OS,U2OS,4,SLAM-seq,3prime,1,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159445,Narain_etal_2021_U2OS,U2OS,4,SLAM-seq,3prime,2,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13159446,Narain_etal_2021_U2OS,U2OS,4,SLAM-seq,3prime,3,control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13573505,Finkel_etal_2021_Calu3,Calu3,1,SLAM-seq,full_length,1,uninfected control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13573506,Finkel_etal_2021_Calu3,Calu3,2,SLAM-seq,full_length,1,uninfected control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13573507,Finkel_etal_2021_Calu3,Calu3,2,SLAM-seq,full_length,2,uninfected control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13573508,Finkel_etal_2021_Calu3,Calu3,3,SLAM-seq,full_length,1,uninfected control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR13573509,Finkel_etal_2021_Calu3,Calu3,4,SLAM-seq,full_length,1,uninfected control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR15654895,Harada_etal_2022_MV411,MV411,1,SLAM-seq,full_length,1,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR15654896,Harada_etal_2022_MV411,MV411,1,SLAM-seq,full_length,2,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR15654897,Harada_etal_2022_MV411,MV411,1,SLAM-seq,full_length,3,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR15655142,Harada_etal_2022_MV411,MV411,1,SLAM-seq,full_length,4,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR19981794,Swartzel_etal_2022_MOLM14,MOLM,2,TimeLapse-seq,full_length,1,untreated WT,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR19981795,Swartzel_etal_2022_MOLM14,MOLM,2,TimeLapse-seq,full_length,2,untreated WT,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR20080260,Ietswaart_etal_2024_K562,K562,2,TimeLapse-seq,full_length,1,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR20080261,Ietswaart_etal_2024_K562,K562,1,TimeLapse-seq,full_length,1,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR20080283,Ietswaart_etal_2024_K562,K562,2,TimeLapse-seq,full_length,2,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR20080284,Ietswaart_etal_2024_K562,K562,1,TimeLapse-seq,full_length,2,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR30007013,Zhou_etal_2024_HEK293T,HEK293,3,SLAM-seq,3prime,1,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR30007014,Zhou_etal_2024_HEK293T,HEK293,3,SLAM-seq,3prime,2,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR30007015,Zhou_etal_2024_HEK293T,HEK293,3,SLAM-seq,3prime,3,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR31699594,Williams_etal_2025_MDAMB,MDAMB,1,SLAM-seq,full_length,1,DMSO whole-cell control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR31699597,Williams_etal_2025_MDAMB,MDAMB,1,SLAM-seq,full_length,2,DMSO whole-cell control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR31699605,Williams_etal_2025_MDAMB,MDAMB,1,SLAM-seq,full_length,3,DMSO whole-cell control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806774,Muhar_etal_2018_many,K562,1,SLAM-seq,3prime,1,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806775,Muhar_etal_2018_many,K562,1,SLAM-seq,3prime,2,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806776,Muhar_etal_2018_many,K562,1,SLAM-seq,3prime,3,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806780,Muhar_etal_2018_many,MV411,1,SLAM-seq,3prime,1,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806781,Muhar_etal_2018_many,MV411,1,SLAM-seq,3prime,2,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806782,Muhar_etal_2018_many,MV411,1,SLAM-seq,3prime,3,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806786,Muhar_etal_2018_many,MOLM,1,SLAM-seq,3prime,1,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806787,Muhar_etal_2018_many,MOLM,1,SLAM-seq,3prime,2,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR5806788,Muhar_etal_2018_many,MOLM,1,SLAM-seq,3prime,3,DMSO control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR7993823,Mowery_etal_2018_Nalm6,Nalm6,5,SLAM-seq,full_length,1,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR7993824,Mowery_etal_2018_Nalm6,Nalm6,5,SLAM-seq,full_length,2,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True
+SRR7993825,Mowery_etal_2018_Nalm6,Nalm6,5,SLAM-seq,full_length,3,WT control,baseline/unperturbed control,,NO_MATCH,True,KEEP,True

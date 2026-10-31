@@ -1,0 +1,4 @@
+group,coverage_status,n
+matched,at_least_10_measurements,11381
+unmatched,below_10_measurements,910
+unmatched,no_exact_symbol_match,690

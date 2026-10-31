@@ -1,0 +1,2 @@
+target,n,rho_lm,rho_xgb,rho_fusion,delta_xgb_minus_lm,delta_fusion_minus_xgb,delta_fusion_minus_lm,pearson_lm,pearson_xgb,pearson_fusion,gene_set_equal_to_context_balanced_evaluation,purpose
+Primary-on-balanced-scope,8871,0.6620581399196609,0.8377547795021003,0.8463403718295575,0.17569663958243942,0.008585592327457148,0.18428223190989657,0.6820060016772493,0.8451155591990497,0.8549965373993885,True,separate evaluation-gene-subset effect from target-construction effect

@@ -1,0 +1,49 @@
+{
+  "xgb_params": {
+    "objective": "reg:squarederror",
+    "tree_method": "hist",
+    "eval_metric": "rmse",
+    "n_estimators": 5000,
+    "learning_rate": 0.02,
+    "max_depth": 3,
+    "min_child_weight": 10.0,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 10.0,
+    "reg_alpha": 0.1,
+    "n_jobs": 12,
+    "early_stopping_rounds": 100
+  },
+  "config": {
+    "PROCESSED_ROOT": "unbundled_resources/codex_1",
+    "SPECIES": "human",
+    "SEED": 42,
+    "CV_K": 5,
+    "CV_FOLDS": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "INNER_VAL_RATIO": 0.1,
+    "STRATIFY_BINS": 20,
+    "EXPECTED_OVERLAP_N": 12981,
+    "OBJECTIVE": "reg:squarederror",
+    "TREE_METHOD": "hist",
+    "EVAL_METRIC": "rmse",
+    "N_ESTIMATORS": 5000,
+    "LEARNING_RATE": 0.02,
+    "MAX_DEPTH": 3,
+    "MIN_CHILD_WEIGHT": 10.0,
+    "SUBSAMPLE": 0.8,
+    "COLSAMPLE_BYTREE": 0.8,
+    "REG_LAMBDA": 10.0,
+    "REG_ALPHA": 0.1,
+    "DEFAULT_N_JOBS": 8,
+    "EARLY_STOPPING_ROUNDS": 100,
+    "RESULT_SLUG": "xgb_saluki_regulatory_features_human_clean_codex1",
+    "MRNALM_SPLIT_ROOT": "unbundled_resources/mrnalm_triplet_human_matched_lora_20260425_145311",
+    "MRNALM_SPLIT_SUBRUN": "mrnalm_triplet_human_matched_lora"
+  }
+}

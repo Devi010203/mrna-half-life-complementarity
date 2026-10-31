@@ -1,0 +1,198 @@
+{
+  "version": "PD4-v1.0-PRE-20260909",
+  "frozen_utc": "2026-09-09T02:07:56.947564+00:00",
+  "authorized_now": "PRE_PD4_ONLY",
+  "formal_training_authorized": false,
+  "pd0": "PROJECT_ROOT/external_validation/privileged_distillation/stages/PD0_20260905T052418_919088Z",
+  "pd1": "PROJECT_ROOT/external_validation/privileged_distillation/stages/PD1_20260905T053953_255250Z",
+  "project": "PROJECT_ROOT",
+  "python": "PROJECT_ROOT/.venv/bin/python",
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "seeds": [
+    42,
+    2026,
+    3407
+  ],
+  "arms": {
+    "A_LABEL_ONLY": {
+      "lambda": 0.0,
+      "teacher": null
+    },
+    "B_BIOCHEM_KD": {
+      "lambda": 0.25,
+      "teacher": "biochemical_559"
+    },
+    "C_COMPACT_KD": {
+      "lambda": 0.25,
+      "teacher": "common_compact_1027"
+    }
+  },
+  "expected_runs": 45,
+  "outer_test_counts": [
+    2600,
+    2600,
+    2600,
+    2600,
+    2581
+  ],
+  "human_n": 12981,
+  "initialization": "original_pretrained_backbones_paired_fresh_lora_and_heads",
+  "old_trained_lora_head_allowed": false,
+  "training": {
+    "epochs": 16,
+    "patience": 5,
+    "checkpoint_metric": "V_k_r2",
+    "improvement_tolerance": 1e-08,
+    "batch_size": 8,
+    "gradient_accumulation": 2,
+    "lr": 1.5935e-05,
+    "weight_decay": 0.002159,
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "warmup_ratio": 0.05,
+    "scheduler": "legacy_warmup_cosine",
+    "extra_initial_lr_multiplication": true,
+    "gradient_clip": 1.0,
+    "smooth_l1_beta": 1.2783,
+    "loss": "(1-lambda)*Huber(y)+lambda*Huber(teacher)",
+    "shared_scaler": "T_k_mean_std_ddof0",
+    "precision": "bf16_training_FP32_validation_require_bf16_GPU",
+    "lora_rank": 16,
+    "lora_alpha": 64,
+    "rslora": true,
+    "lora_dropout": 0.0,
+    "lora_targets": [
+      "query",
+      "key",
+      "value"
+    ],
+    "head_dim": 256,
+    "head_dropout": 0.3223,
+    "aggregation": "mean_max",
+    "aggregation_hidden": 512,
+    "aggregation_dropout": 0.1,
+    "trainable_parameters": 6786305,
+    "trainable_tensors": 228,
+    "frozen_backbone": true,
+    "chunk_lengths": [
+      512,
+      1024,
+      1024
+    ],
+    "chunk_strides": [
+      512,
+      1024,
+      512
+    ],
+    "gradient_checkpointing": true,
+    "input_require_grads_hooks": true,
+    "data_order": "16 torch.randperm permutations from dedicated CPU Generator(seed), same T_k order for A/B/C",
+    "augmentation": "none",
+    "workers": 0,
+    "optimizer_resume": false,
+    "unexpected_skipped_updates": "FAIL_NO_AUTOMATIC_CONFIG_CHANGE"
+  },
+  "teacher": {
+    "reuse_PD1_only": true,
+    "inner_folds": 5,
+    "model_count": 50,
+    "parameters": {
+      "objective": "reg:squarederror",
+      "tree_method": "hist",
+      "eval_metric": "rmse",
+      "n_estimators": 5000,
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 10.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 10.0,
+      "reg_alpha": 0.1,
+      "early_stopping_rounds": 100
+    },
+    "seed_rule": "42 + 100 * outer_fold + inner_fold",
+    "receiver_in_fit_or_early_stop": false,
+    "V_or_E_in_teacher": false,
+    "all_T_refit": false
+  },
+  "statistics": {
+    "primary": "equal_mean_15_matched_outer_fold_seed_R2_differences",
+    "deltas": [
+      "B-A",
+      "B-C",
+      "C-A"
+    ],
+    "secondary": [
+      "spearman",
+      "pearson",
+      "rmse"
+    ],
+    "bootstrap_n": 5000,
+    "bootstrap_seed": 42,
+    "ci": "95_percentile_2.5_97.5",
+    "bootstrap_unit": "human_gene_global_OOF_with_replacement_same_indices_all_9_models",
+    "primary_bootstrap_estimator": "within_each_resample_recompute_5_fold_by_3_seed_R2_then_equal_mean_deltas",
+    "secondary_bootstrap_estimators": "each_seed_OOF_and_equal_seed_prediction_ensemble",
+    "fraction_positive_is_p_value": false,
+    "seed_resampling": false,
+    "fold_SD_ddof": 0,
+    "seed_SD_ddof": 0,
+    "seed_selection": "none"
+  },
+  "go_stop": {
+    "BA_practical": 0.01,
+    "BA_strong": 0.02,
+    "positive_seed_averaged_folds_min": 4,
+    "positive_fold_averaged_seeds_min": 2,
+    "paired_primary_delta_ci_lower_must_exceed": 0,
+    "systematic_correlation_reversal": "for either correlation: negative delta in >=4 seed-averaged folds AND >=2 fold-averaged seeds",
+    "numerical_pathology": "nonfinite targets/predictions/metrics, constant predictions, or prediction SD/target SD outside [1e-6,1e6]",
+    "calibration_pathology": "nonpositive slope of y_true~prediction in >=4 seed-averaged folds or >=2 fold-averaged seeds",
+    "BC_strong": 0.01,
+    "BC_modest": 0.005,
+    "BC_positive_below_modest": "too_small_for_strong_privilege_claim",
+    "BC_nonpositive": "no_biochemical_superiority",
+    "CA_go": "same conditions as BA applied to C-A",
+    "BA_below_practical": "STOP_FOR_SMALL_EFFECT_even_if_CI_positive",
+    "automatic_external_or_mouse": false
+  },
+  "slurm": {
+    "cpus": 4,
+    "memory": "15G",
+    "gpus": 1,
+    "time": "96:00:00",
+    "partition": "debug",
+    "exclude": [
+      "Node32"
+    ],
+    "max_concurrent_training_jobs": 3,
+    "pairing": "each_triplet_jobs_use_same_resolved_GPU_architecture_constraint_before_submission",
+    "failure": "retain_all_attempts_no_automatic_retry_or_configuration_change"
+  },
+  "evaluation_gate": "all_45_workers_PASS_and_all_selected_checkpoints_and_code_hashes_frozen_before_any_E_inference",
+  "lambda1_diagnostic": "OMITTED",
+  "future_evaluation_requires_separate_manual_command": true,
+  "exposure_status": "PARTIALLY_DOCUMENTED_NO_DIRECT_LABEL_EXPOSURE_FOUND",
+  "limitations": [
+    "Incomplete exact upstream pretraining lineage; possible sequence overlap",
+    "Biochemical input preprocessing is label-blind but transductive across full human feature universe",
+    "Inherited human architecture/hyperparameters and known PD3 pilot: not a completely untouched design history",
+    "New endpoint and practical thresholds were user-authorized after PD3 but before new PD4 outer-test"
+  ],
+  "revision_from_PD_v1": [
+    "Primary changed from OOF Spearman to outer-fold R2 by current user request",
+    "Human outer-test/OOF evaluation moved into PD4 after global 45-checkpoint lock, not deferred to PD5",
+    "Practical-effect decision rules registered now, after PD3 feasibility observations"
+  ],
+  "stop": "Even READY=YES wait for explicit user phrase 开始 PD4; after PD4 completion stop again"
+}

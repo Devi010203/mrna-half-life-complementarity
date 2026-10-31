@@ -1,0 +1,19 @@
+{
+  "paired_index_stream_sha256": "a727138fa87c6f690b9f250e9a3e22720f2a30a484582266de80ce422c5346bf",
+  "seed": 42,
+  "resamples": 5000,
+  "gene_order_source": "data/human/oof.csv:ENSID",
+  "seed_order": [
+    42,
+    2026,
+    3407
+  ],
+  "arm_order": [
+    "A_LABEL_ONLY",
+    "B_BIOCHEM_KD",
+    "C_COMPACT_KD"
+  ],
+  "seeds_resampled": false,
+  "folds_preserved": true,
+  "source_sha256": "378c74bd6beec36b61a107a5b8874cc4f4445826facde873fbcc8bedf0ad503e"
+}

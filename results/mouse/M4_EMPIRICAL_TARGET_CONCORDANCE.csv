@@ -1,0 +1,2 @@
+analysis_name,scope,n_pairs,unique_human_ENSID,unique_mouse_ENSID,spearman_rho,pearson_r,called_theoretical_ceiling,used_to_modify_models_or_predictions
+empirical cross-species target concordance,M0_ORTHOLOG_REPRESENTED_ONE_TO_ONE_PAIRS,10200,10200,10200,0.7669093066679434,0.7793154374303404,False,False

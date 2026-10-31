@@ -1,0 +1,3 @@
+domain,n,prediction_lm_vs_xgb_spearman,prediction_lm_vs_xgb_pearson,residual_lm_vs_xgb_spearman,residual_lm_vs_xgb_pearson,xgb_residual_vs_lm_prediction_spearman,xgb_residual_vs_lm_prediction_pearson,lm_residual_vs_xgb_prediction_spearman,lm_residual_vs_xgb_prediction_pearson,used_to_modify_fusion
+HUMAN_OOF,12981,0.7437094944386043,0.7603926106964135,0.7566436319036157,0.7727541897385638,0.2037036708051784,0.2011307172924439,0.2009330561723829,0.1954704989845858,False
+ALL_MOUSE,13744,0.76546849898983,0.7822561992384542,0.6883000990198764,0.7229696938816588,-0.058468779482403074,-0.07523294089379888,-0.12859519039664777,-0.1465674153163856,False

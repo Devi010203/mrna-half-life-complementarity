@@ -1,0 +1,45 @@
+{
+  "terminal_interpretation": "DISTILLATION_EFFECT_PRACTICALLY_SMALL",
+  "candidate_checks": {
+    "BIOCHEM_KD": {
+      "GO": false,
+      "checks": {
+        "effect_ge_0_010": false,
+        "positive_folds_ge_4": false,
+        "positive_seeds_ge_2": true,
+        "primary_CI_lower_gt_0": true,
+        "no_systematic_correlation_reversal": true,
+        "no_calibration_pathology": true,
+        "no_numerical_pathology": true
+      },
+      "positive_folds": 3,
+      "positive_seeds": 3,
+      "STRONG": false
+    },
+    "COMMON_TEACHER": {
+      "GO": false,
+      "checks": {
+        "effect_ge_0_010": false,
+        "positive_folds_ge_4": true,
+        "positive_seeds_ge_2": true,
+        "primary_CI_lower_gt_0": true,
+        "no_systematic_correlation_reversal": true,
+        "no_calibration_pathology": true,
+        "no_numerical_pathology": true
+      },
+      "positive_folds": 4,
+      "positive_seeds": 3,
+      "STRONG": false
+    }
+  },
+  "STOP_FOR_SMALL_EFFECT": true,
+  "biochemical_specific_supported": false,
+  "BC_magnitude": "no_superiority",
+  "BC_CI_lower_positive": false,
+  "READY_FOR_SECONDARY_EXTERNAL_EVALUATION": "NO",
+  "recommended_route": [],
+  "recommendation_requires_full_integrity_PASS": true,
+  "external_execution_authorized": false,
+  "stop_after_PD4": true,
+  "acceptance_pending": true
+}

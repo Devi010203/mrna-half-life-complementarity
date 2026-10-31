@@ -1,0 +1,86 @@
+{
+  "human": [
+    "data/human/oof.csv",
+    "10140c49906ab6a0350bebcc4aba179d4e1bc3bd95fc116bd50cc1e995e57ade"
+  ],
+  "external": [
+    "data/external/matched.csv",
+    "e5e5bc36ec09750ded055f5d3272422cba442e8e7d919149dc051f9019bd1794"
+  ],
+  "common_human": [
+    "data/human/oof.csv",
+    "10140c49906ab6a0350bebcc4aba179d4e1bc3bd95fc116bd50cc1e995e57ade"
+  ],
+  "mouse": [
+    "data/mouse/predictions.csv",
+    "e94f7070fc0b6013b7ac31e3cf0fdc94aa1ab0c5148fc25d6bf88e6b6815e1fc"
+  ],
+  "strata_ids": [
+    "data/mouse/ortholog_manifest.csv",
+    "7675e98b67d6b477716a93de52a18dc293740777c3e41719dab3264fc546b27f"
+  ],
+  "shap": [
+    "data/interpretation/shap_values.csv.gz",
+    "04e0fef12b2e4ba8ab95326e5969ee6add0d2a348e1aca5e229154bc4a16f102"
+  ],
+  "shap_rank": [
+    "data/interpretation/shap_top_features.csv",
+    "d80aba0acbd4541d66498e17534f41655cb3e4a455a2a8796d6599d65feec9ff"
+  ],
+  "shap_diagnostics": [
+    "data/interpretation/shap_fold_diagnostics.csv",
+    "698d771bd5a417bd311848ddb8c44f336674aa233dedd9980eb7d5a404ebfb3a"
+  ],
+  "bio_summary": [
+    "results/human/xgb_summary_metrics.csv",
+    "c6555f0893299be9f4b4d76ea7301fbddfef726522036708fa42246a024e64a7"
+  ],
+  "fusion_summary": [
+    "results/human/late_fusion_summary_metrics.csv",
+    "350934a21e9cf12188d61bbbb3510acbca14ed8da49403c3bfddc21323cf26a7"
+  ],
+  "target_metric": [
+    "results/external/current_scope_target_replication_metrics.csv",
+    "18f2a82f8a76aa3ed9d6b1d2e4e671733e31b60824d4cec1af86d40311e5656d"
+  ],
+  "external_metrics": [
+    "results/external/external_primary_metrics.csv",
+    "f0d10bcb47ceefd806c9b7dc2da7a29acf1e4c17641f90936466a3c04bd09d1d"
+  ],
+  "contexts": [
+    "results/external/per_context_metrics.csv",
+    "a351682ddba45ef2fe5a43e1ddecd88067c0d858d92a3e322ca46e37d96edc86"
+  ],
+  "human_common_metrics": [
+    "results/mouse/M3_HUMAN_OOF_MODEL_METRICS.csv",
+    "40690436b3e24fd64af45ef71fd7bdbcc1543f05fc75de4692de0be43987ccc1"
+  ],
+  "mouse_metrics": [
+    "results/mouse/M3_ALL_MOUSE_MODEL_METRICS.csv",
+    "e5ee419d466bb39846e467c44bf33e3e08dab2bfb87487b37c5569ea0995e49d"
+  ],
+  "strata_metrics": [
+    "results/mouse/M4_STRATUM_MODEL_METRICS.csv",
+    "fcbf581d743446c20a6635f41a63f32e81046c83fb05a51004baece0e0adb918"
+  ],
+  "measurement_metrics": [
+    "results/mouse/M5_PER_EXPERIMENT_MODEL_METRICS.csv",
+    "1445fd727cbe7e7a39ddc87e0d060641fdd0ec6ebe46e2bea807882f94e26e8d"
+  ],
+  "measurement_order": [
+    "data/mouse/measurement_manifest.csv",
+    "00ef72e12b8559062152309d2bf34a8a71cb8ce241d39dee9531fde78c267bbf"
+  ],
+  "pd4_runs": [
+    "results/distillation/fold_seed_arm_metrics.csv",
+    "b2f9aefa148fb564362cae14418f0dc6d8fef03336de3257e66926daa4874db7"
+  ],
+  "pd4_means": [
+    "results/distillation/mean_fold_seed_arm_metrics.csv",
+    "6f505521511313641d37134495112663a830b5c1a39b646769c2210e074a8354"
+  ],
+  "pd4_deltas": [
+    "results/distillation/matched_delta_summary.csv",
+    "e9f42b74cfe16bc0f9e832a0ce573044f091263c2951a689378738000f82039e"
+  ]
+}
