@@ -3,6 +3,7 @@
   "authors": [
     "Xu Jin",
     "Bihang Cui",
+    "Ruxin Yan",
     "Yingchen Mao",
     "Dinglin Zhang"
   ],
@@ -25,6 +26,9 @@
       "corresponding": false,
       "orcid": "0009-0008-5280-7419",
       "credit": "Investigation, Data curation"
+    },
+    {
+      "name": "Ruxin Yan"
     },
     {
       "name": "Yingchen Mao",

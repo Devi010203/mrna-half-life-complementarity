@@ -87,8 +87,8 @@ recorded preprocessCore source-build option before running the R scripts.
 
 ## Citation and licensing
 
-Authors: Xu Jin, Bihang Cui, Yingchen Mao and Dinglin Zhang. Use `CITATION.cff`
-and cite the source datasets when reusing their data. Original software is
+Authors: Xu Jin, Bihang Cui, Ruxin Yan (闫如鑫), Yingchen Mao and Dinglin Zhang.
+Use `CITATION.cff` and cite the source datasets when reusing their data. Original software is
 licensed under MIT. Author-owned new data and original Figure 1–4/S1
 visualization contributions are covered by CC BY 4.0 within the scope described
 in [DATA_LICENSES.md](DATA_LICENSES.md); third-party components retain their
