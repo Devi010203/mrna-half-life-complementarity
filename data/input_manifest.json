@@ -20,7 +20,7 @@
     "data/external/mapping/mapping_summary.csv": "e83347e912450001331dfcfb861fc653feafbdefe89ca3d02c3031bcb81efa08",
     "data/external/matched.csv": "e5e5bc36ec09750ded055f5d3272422cba442e8e7d919149dc051f9019bd1794",
     "data/external/no_qn_matched.csv": "58bcba2e648a082ce73f079bdfc3075751624aa39ced676f42d316b4af65c758",
-    "data/figure_sources.json": "4a5270c0cfe80546b95c084e7535588d1008094d63c071a1d0570bdd384d5149",
+    "data/figure_sources.json": "cb9af34392cab5e5742ff31c6a482ed807ba8398f1b238ee3365b6062bd61856",
     "data/human/coverage_features.csv": "852bf3e84e134a2cb0e3821c6066ad9550a1941ec528dd9a1ea760c2b1c46462",
     "data/human/oof.csv": "10140c49906ab6a0350bebcc4aba179d4e1bc3bd95fc116bd50cc1e995e57ade",
     "data/interpretation/model_provenance.json": "ff36d97bf6ca467ffc2a5185c0768f628633aee264e634d405640a4679943fea",

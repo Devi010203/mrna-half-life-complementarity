@@ -136,7 +136,7 @@ The additional organoid evaluation and its independent statistical reproduction 
 
 Statistical reproduction used saved gene-level targets and predictions with fixed evaluation definitions. The CPU-only workflow recalculates the supported human and primary external-human comparisons, primary mouse and ortholog-stratified analyses, all 27 mouse measurements and 16 human contexts. It also recalculates the primary and secondary matched-distillation analyses (PD4). Bootstrap intervals for these implemented estimands use the original 5,000-resample definitions, paired indices, gene order and seeds. Five-fold population standard deviations are reported separately as descriptive summaries, not confidence intervals. Recalculated estimates and intervals were checked against frozen references; their uncertainty remains conditional on the supplied predictions and targets.
 
-The isolated Python environment used Python 3.12.3, NumPy 1.26.4, pandas 2.1.4 and SciPy 1.11.4. Tables 1–3, Figures 1–4 and S1, and three supplementary workbooks were regenerated from saved source data. Figure rendering used Matplotlib 3.9.2 and Pillow 10.4.0, with dependencies recorded in the supplied lockfile.
+The isolated Python environment used Python 3.12.3, NumPy 1.26.4, pandas 2.1.4 and SciPy 1.11.4. Tables 1–3, Figures 1–4 and S1–S2, and three supplementary workbooks were regenerated from saved source data. Figure rendering used Matplotlib 3.9.2 and Pillow 10.4.0, with dependencies recorded in the supplied lockfile.
 
 A separate, freshly installed Linux R environment reconstructed External-PC1 from the bundled processed matrices. It used R 4.5.3, missMDA 1.22, preprocessCore 1.72.0 and jsonlite 2.0.0, including the recorded non-threaded preprocessCore source build. Primary, context-balanced and no-quantile-normalization target values matched the frozen CSV values exactly. The primary target contained 13,630 genes; its direction, 11,381-gene matched intersection and specified model correlations were verified. All 14 leave-one-dataset-out targets were generated, with gene counts and summary statistics matching the frozen references. Original per-gene leave-one-dataset-out references were not bundled, so these targets were not compared value by value.
 
@@ -160,7 +160,7 @@ We used 5,000 paired gene-bootstrap samples of the original sample size, drawn w
 
 ### S7.3 Common-target and coverage analyses
 
-The 4,801 primary genes also present in the frozen External-PC1 evaluation table formed a separate common-target set. The other 89 genes remained in the primary analysis. On this identical set, we compared all five predictions with the original Saluki target, External-PC1 and organoid half-lives, retaining the original directions and values of both existing targets. We also calculated pairwise target correlations and Bio-Fusion minus Bio-XGB gains under each target. Pearson target comparisons applied log2 only to organoid half-lives. A separate 5,000-draw bootstrap initialized with seed 42 used shared indices across all models and targets. Differences between target-specific gains were calculated within each draw and interpreted descriptively (Table S14a–c).
+The 4,801 primary genes also present in the frozen External-PC1 evaluation table formed a separate common-target set. The other 89 genes remained in the primary analysis. On this identical set, we compared all five predictions with the original Saluki target, External-PC1 and organoid half-lives, retaining the original directions and values of both existing targets. We also calculated pairwise target correlations and Bio-Fusion minus Bio-XGB gains under each target. Pearson target comparisons applied log2 only to organoid half-lives. A separate 5,000-draw bootstrap initialized with seed 42 used shared indices across all models and targets. Differences between target-specific gains were calculated within each draw and interpreted descriptively (Figure 2b,c; Table S14a–c).
 
 Coverage diagnostics considered all 12,981 human benchmark genes: 4,890 included, 425 with an exact published match but failing control quality filtering, and 7,666 without an exact match to the published list. The latter two groups comprised 8,091 non-included genes. We summarized original target distributions, sequence and regional lengths, regional GC content, and recorded External-PC1 measurement coverage, retaining missingness. These coverage counts describe the earlier external-human sources, not SLAM-seq read depth or expression, which were unavailable in the processed files. Original-target OOF correlations were summarized by group, including the 4,801 common-target genes and the remaining 89 primary genes; no organoid accuracy was assigned to non-included genes (Table S14e–g).
 
@@ -685,3 +685,10 @@ All entries evaluate the original Saluki target, not organoid accuracy for non-i
 
 
 ![Figure S1](../../figures/Figure_S1.png)
+
+
+### Fig. S2 Gene-level predictions against External-PC1
+
+a–c, External-PC1 versus frozen human OOF predictions from LM (a), Bio-XGB (b) and Bio-Fusion (c) for the same 11,381 matched genes. All genes are shown, and the three panels share identical axis limits. Annotations give the saved Spearman correlations. Blue, orange and purple identify the respective models. Model-performance estimates and paired contrasts are reported in Table 2; target concordance and context-specific comparisons are shown in Figure 2a,d.
+
+![Figure S2](../../figures/Figure_S2.png)

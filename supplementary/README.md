@@ -1,16 +1,16 @@
 # Supplementary files and rights guide
 
-The supplement adds Methods S7 and Tables S13–S14 for GSE336417. Original S1–S12
-table cells, methods, equations and Figure S1 are preserved, apart from short
-scope/cross-reference additions. ESM_3a and ESM_3b remain byte-identical to the
-preceding release. ESM_2 extends the existing workbook, rather than adding a
-fourth reader-facing workbook. Full-precision organoid references are in
+The complete supplement includes Methods S1–S7, Note S1, Tables S1–S14 and
+Figures S1–S2. Figure S2 presents the three external-human prediction scatters;
+the three-target model comparison and paired fusion gains are in main Figure 2b,c.
+Existing table cells, equations and Figure S1 are preserved. All three workbooks
+are byte-identical to the accepted GSE336417 integration release. Full-precision organoid references are in
 `results/organoid/`; numerical CSV/NPZ inputs, not display rounding, govern
 reproduction.
 
 | File | Contents | Rights scope |
 |---|---|---|
-| `ESM_1_Supplementary_Information.pdf` | Supplementary Methods S1–S7, Note S1, Tables S1–S14 and Figure S1; editable DOCX and Markdown in `source/` | Complete scholarly prose is not automatically included in the data license. Author-owned data/visualization contributions and third-party exceptions remain separately scoped. |
+| `ESM_1_Supplementary_Information.pdf` | Supplementary Methods S1–S7, Note S1, Tables S1–S14 and Figures S1–S2; editable DOCX and Markdown in `source/` | Complete scholarly prose is not automatically included in the data license. Author-owned data/visualization contributions and third-party exceptions remain separately scoped. |
 | `ESM_2_Supplementary_Tables_S1-S14.xlsx` | Reader-facing supplementary tables; S13a–b and S14a–g document organoid performance and diagnostics | Author-owned new statistics and table organization: CC BY 4.0. Retain Jiang et al. attribution for organoid measurements and original terms for Saluki/RNAdecayCafe. Source metadata and attribution in S12a–c retain their source conditions; accession IDs and bibliographic facts acquire no new restrictions. |
 | `ESM_3a_Source_Statistics_S9-S11.xlsx` | Human/external comparison and coverage statistics | Author-owned new statistical summaries and organization: CC BY 4.0; retain underlying data-source attribution. |
 | `ESM_3b_Source_Provenance_S12.xlsx` | Source verification, accession crosswalks and Saluki source records | Author-owned curation: CC BY 4.0; source facts, article material and code excerpts retain the different conditions specified below. |
@@ -31,7 +31,7 @@ reproduction.
   new crosswalk organization is CC BY 4.0; the code excerpts are not relicensed.
 
 The same distinctions apply to corresponding source CSVs and
-`data/sources/supplementary_display.xlsx`. Author-owned Figure 1–4 and S1
+`data/sources/supplementary_display.xlsx`. Author-owned Figures 1–4 and S1–S2
 visualization contributions are licensed under CC BY 4.0 within the author-owned
 scope. Source data and third-party figure components retain their applicable
 terms and remain outside that author grant.
@@ -40,3 +40,9 @@ See [DATA_LICENSES.md](../DATA_LICENSES.md) for author/source attribution,
 license links and exclusions, and [docs/file_manifest.csv](../docs/file_manifest.csv)
 for exact file provenance, rights scopes and checksums. No blanket license is
 asserted over every cell of a mixed workbook or over the complete ESM_1 prose.
+
+Standalone Figure S1/S2 PNG, PDF and SVG files are in `../figures/`. The PNGs
+are 600 dpi exports, not the smaller screen previews. For submission, use ESM_1
+and the three workbooks above; `source/` provides the editable supplementary
+document. Statistical CSV/NPZ files remain in the reproduction repository and
+are not duplicated as many small reader-facing tables here.

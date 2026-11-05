@@ -35,11 +35,12 @@ or add restrictions to public-domain data, identifiers or unprotected facts.
 
 ### Original figures
 
-The authors' original visualization contributions to Figures 1–4 and Figure S1
+The authors' original visualization contributions to Figures 1–4 and Figures S1–S2
 are licensed under CC BY 4.0 within the author-owned scope above. This is not a
 blanket grant over third-party components, underlying source data or embedded
-fonts, which retain their applicable terms. The figure files themselves are
-unchanged.
+fonts, which retain their applicable terms. Figure S2 rearranges the previously
+authorized external-human model scatter visualizations; it does not expand the
+license to third-party targets, measurements or scholarly prose.
 
 ### Scholarly prose and unbundled resources
 

@@ -22,15 +22,16 @@ not a new experiment. Bootstrap uncertainty is conditional on fixed predictions.
 | S12 source independence/accession crosswalks | Curated evidence preserved | Not a metric | LEVEL1 |
 | S13 organoid primary five-model evaluation | Reconstructed from published processed controls and fixed OOF predictions, n=4,890 | Recomputed 5,000 paired draws; every draw independently checked | LEVEL2; single organoid context |
 | S14 organoid common-target, fold and coverage diagnostics | Recomputed on n=4,801 for three targets, original five folds for n=4,890, and all n=12,981 for coverage | Recomputed 5,000 paired common-target draws; no new fold/coverage intervals | LEVEL2 for recorded statistics; original peak calling and decay fitting not rerun |
-| Figure1–4/S1 | Original renderer rerun with complete saved inputs; source-cell/hash QA | Annotations use frozen results, not fresh selection | Display reproduction; does not imply new SHAP/training |
+| Figures 1–4 and S1–S2 | Renderers rerun with complete saved inputs; source-cell/hash QA | Annotations use frozen results, not fresh selection | Display reproduction; does not imply new SHAP/training |
 | SHAP, ablation/permutation, Common-Full sensitivity | Saved evidence retained/redrawn where applicable | No new fitting or explanations | LEVEL1 |
 | External-PC1 processed-matrix construction | Primary, context-balanced and no-QN target values rebuilt and matched exactly; Primary direction, 13,630 genes, 11,381 matched genes and specified model correlations checked; all 14 LODO gene counts and summary statistics checked | Not recalculated by target construction | Separate fresh R environment; not part of the default Python run; no original per-gene LODO reference comparison |
 | Original training, pretrained embeddings and weight inference | Scientific implementations/configurations retained | Not executed | LEVEL3 not provided |
 
 The default rebuilds all three XLSX workbooks from canonical sources and checks
-4,957 data cells. The bundled ESM PDF was re-exported from its editable source
-after the approved S6.4 text update to match the executed reproduction scope.
-Its other sections, tables, equations, references and Figure S1 were preserved.
+5,311 cells in the reader-facing and source tables. The bundled ESM PDF was re-exported
+from its editable source after adding Figure S2 and updating the Figure 2b,c
+cross-reference. All existing tables, equations, references and Figure S1 were
+preserved, as were the approved S6.4 reproduction scope and S7 organoid methods.
 The statistical workflow does not regenerate or modify the ESM PDF. The three
 bundled XLSX workbooks retain their existing values and structure.
 
@@ -43,11 +44,15 @@ scoped check JSONs separate point recomputation from interval recomputation and
 saved-reference verification. The original bootstrap seeds, gene order, paired
 sampling and percentile definitions are preserved.
 
-Figures retain the approved panel composition, full gene counts, full measurement
-order, colors, scales and annotations. The Python-only renderer emits PNG/PDF/SVG
-and print-size checks. No downsampling, new performance conclusion or redesigned
-figure is introduced. Rendering depends on installed fonts; data equivalence is
-tested independently of byte/pixel identity.
+Figures use the author-approved panel composition, full gene counts, full
+measurement order, colors, scales and annotations. Figure 2b,c presents the saved
+three-target comparisons on 4,801 common genes; Figure S2 contains the three
+relocated external prediction scatters on 11,381 genes. The Python-only renderer
+emits 600-dpi PNG and vector PDF/SVG with print-size checks. No downsampling or
+new performance calculation is introduced. Rendering depends on installed fonts;
+data equivalence is tested independently of byte/pixel identity. Display-only
+updates are checked separately from the previous full statistical acceptance;
+they do not imply another execution of all bootstrap analyses.
 
 Acceptance used a freshly installed locked Python environment, cleared process
 environment, offline execution, a deny-read/write Python audit hook with a

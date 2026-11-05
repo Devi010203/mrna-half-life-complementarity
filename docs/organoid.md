@@ -66,6 +66,10 @@ v2 before any performance calculation. Secondary comparisons are descriptive.
 
 The reader-facing methods are S7. Tables S13–S14 are in the extended ESM_2
 workbook and the supplement PDF. All original S1–S12 data cells are retained.
+Main Figure 2b,c visualizes the 4,801-gene common-target model correlations and
+paired fusion gains; it does not replace the 4,890-gene primary evaluation.
+Supplementary Figure S2 instead shows the earlier 11,381-gene External-PC1
+prediction scatters.
 
 ## Outputs and independent checks
 

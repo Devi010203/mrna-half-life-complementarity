@@ -77,6 +77,14 @@ only for Pearson. `Saluki` and `External-PC1` retain their existing target
 values and orientation. The 4,890-gene primary and 4,801-gene common-target
 manifests are in `data/organoid/frozen/preflight_20261102/audit/`.
 
+Main Figure 2b,c reads `results/organoid/Three_target_models.csv` and
+`Three_target_deltas.csv` directly, using the same 4,801 genes. Its CIs are stored
+model and paired-contrast intervals, not newly calculated plotting quantities.
+Figure 2a and Figure S2 use the 11,381 rows of `data/external/matched.csv`;
+Figure 2d retains the frozen order and sample sizes in
+`results/external/per_context_metrics.csv`. Their hashes are registered in
+`data/figure_sources.json` and checked by the figure entrypoint.
+
 Author-owned new calculations/curation use CC BY 4.0, original code uses MIT,
 and copied measurements retain Jiang et al. attribution and source conditions.
 Mixed targets/predictions retain Saluki and RNAdecayCafe conditions as applicable.

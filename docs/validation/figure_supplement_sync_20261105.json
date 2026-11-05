@@ -1,0 +1,80 @@
+{
+  "status": "PASS_DISPLAY_AND_SUPPLEMENT_SYNC",
+  "scope": "Approved Figure 2 redesign and relocation of former scatter panels to Figure S2; no new statistics.",
+  "reference_statistical_acceptance": "docs/validation/gse336417_integration_20261105.json",
+  "full_statistical_pipeline_rerun_this_update": false,
+  "protected_numerical_training_environment_files_unchanged": 191,
+  "original_statistics_and_organoid_programs_unchanged": true,
+  "three_workbooks_byte_identical": true,
+  "workbook_cells_checked": 5311,
+  "existing_official_Figures_1_3_4_S1_byte_identical": true,
+  "before_after_same_environment_rendering_identical_for_unchanged_figures": true,
+  "figure_2_render_matches_author_approved_PNG_pixels": true,
+  "figure_S2_render_matches_relocated_scatter_PNG_pixels": true,
+  "full_figure_entrypoint_executed": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "S1",
+    "S2"
+  ],
+  "supplement_only_entrypoint_executed": [
+    "S1",
+    "S2"
+  ],
+  "all_gene_scatter_panels_checked": 15,
+  "frozen_source_cell_checks": 328,
+  "Figure2b": {
+    "points": 15,
+    "CI_bars": 15,
+    "CI_caps": 30,
+    "between_target_lines": 0,
+    "all_point_and_CI_values_unchanged": true
+  },
+  "updated_supplement_pdf_pages": 33,
+  "all_33_existing_DOCX_table_XML_blocks_preserved": true,
+  "all_existing_DOCX_equations_and_sections_preserved": true,
+  "prior_32_PDF_pages_text_preserved_except_two_cross_references": true,
+  "PDF_review": "All page overview thumbnails and changed-methods/Note S1/S2 detail pages visually reviewed; no blank pages or replacement characters.",
+  "isolated_font_environment_not_retested": true,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "tests/test_release.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tests/test_organoid.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/tables.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/figures.py",
+        "--validate-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tests/test_figures_supplement.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

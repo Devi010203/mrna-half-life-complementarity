@@ -82,5 +82,13 @@
   "pd4_deltas": [
     "results/distillation/matched_delta_summary.csv",
     "e9f42b74cfe16bc0f9e832a0ce573044f091263c2951a689378738000f82039e"
+  ],
+  "organoid_three_target_models": [
+    "results/organoid/Three_target_models.csv",
+    "5142b5e6ea131b8ae9303b9479dcbfa2da5934be6599387789c63a2e7762d55f"
+  ],
+  "organoid_three_target_deltas": [
+    "results/organoid/Three_target_deltas.csv",
+    "9c96ab26c6bb71df75dee2262956d7030f115fefe9357a1cbd62c6208d12b619"
   ]
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Approved classical Figures 1–4 and matched-distillation S1; saved values only.
+"""Approved classical Figures 1–4 and matched-distillation S1 and external scatter S2; saved values only.
 
 Default outputs: outputs/figures_1/ (PNG/SVG/PDF plus QA). No training,
 inference, SHAP estimation, performance calculation or bootstrap. The supplied
@@ -44,10 +44,10 @@ DPI = 600
 SOURCES = json.loads((ROOT / "data/figure_sources.json").read_text())
 
 D, RAW = {}, {}
-QA = {"status":"AUTHOR_APPROVED_MAIN_FIGURES_FORMAL_EXPORT_WITH_NEW_S1",
+QA = {"status":"APPROVED_FIGURES_WITH_REVISED_EXTERNAL_FIGURE2_AND_S2",
       "new_performance_metrics":False,"training_or_inference":False,"new_shap_or_bootstrap":False,
       "source_tables":[],"source_cells":[],"scatters":[],"beeswarm":{},"figures":[],
-      "style_assumption":"Author approved the existing complete V6 main-figure layout; new S1 follows its style"}
+      "style_assumption":"Figures 1/3/4/S1 retain their approved layouts; revised Figure 2 and relocated scatter S2 use frozen references."}
 TABLE_ROWS = []
 
 def sha(path):
@@ -319,33 +319,16 @@ def figure1():
     finish(fig,1,["a","b","c","d"])
 
 def figure2():
-    fig=canvas(183,246)
-    boxes=[[18,174,62,62],[109,174,62,62],[18,91,62,62],[109,91,62,62]]
-    for i,col in enumerate(["saluki_target","mrna_lm_oof","xgb_oof","fusion_oof"]):
-        rho=saved("target_metric","spearman") if i==0 else saved("external_metrics","spearman",model=["mRNA-LM","XGBoost","Fusion"][i-1])
-        title="Original Saluki target" if i==0 else BIO_NAMES[i-1]
-        color="#777F87" if i==0 else C[i-1]
-        ax=scatter(fig,boxes[i],"external","external_PC1",col,"ENSID",color,f"2{chr(97+i)}",
-                   (-21,21),f"Spearman ρ = {rho:.4f}",xlabel="External-PC1",
-                   ylabel="Original human target" if i==0 else f"{BIO_NAMES[i-1]} OOF prediction")
-        head(ax,chr(97+i),title,color)
-    ctx=label_axis(fig,[6,14,56,60],16)
-    ns=label_axis(fig,[64,14,15,60],16)
-    vals=D["contexts"][["lm_spearman","xgb_spearman","fusion_spearman"]].to_numpy()
-    lo,hi=math.floor(vals.min()*10)/10-.01,math.ceil(vals.max()*10)/10+.01
-    majors=np.arange(math.ceil(lo*10)/10,hi,.1)
-    dots=dot_axis(fig,[87,14,90,60],16,(lo,hi),majors)
-    head(ctx,"e","Context");colhead(ns,"n",True);legend(dots,BIO_NAMES)
-    guides([ctx,ns,dots],16)
-    for row,r in D["contexts"].iterrows():
-        parts=r.dataset.split("_")
-        t=label(ctx,f"{parts[0]} {parts[2]} · {r.cell_line}",row)
-        n=label(ns,f"{int(r.n_model_matched):,}",row,right=True)
-        TABLE_ROWS.append([t,n])
-        values=[saved("contexts",c,context_id=r.context_id) for c in ["lm_spearman","xgb_spearman","fusion_spearman"]]
-        paired(dots,values,row)
-    QA["context_ids_in_order"]=D["contexts"].context_id.tolist()
-    finish(fig,2,["a","b","c","d","e"])
+    from figures_external import render
+    QA["external_figure2"] = render(ROOT, OUT, "2")
+    style()
+
+
+def figure_s2():
+    from figures_external import render
+    QA["external_figure_s2"] = render(ROOT, OUT, "s2")
+    style()
+
 
 def figure3():
     fig=canvas(183,152)
@@ -473,7 +456,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--validate-only",action="store_true",help="Check frozen inputs without rendering.")
     parser.add_argument("--output-dir",default="outputs/figures_1",help="New directory under outputs/.")
-    parser.add_argument("--figures",choices=["all","main","s1"],default="all")
+    parser.add_argument("--figures",choices=["all","main","s1","s2","supplementary"],default="all")
     args=parser.parse_args()
     OUT=(ROOT/args.output_dir).resolve()
     if not __debug__:raise RuntimeError('Do not disable verification with python -O')
@@ -485,12 +468,12 @@ def main():
         print(json.dumps({"status":"PASS","sources":len(SOURCES),"human":12981,"external":11381,
             "mouse":13744,"pd4_runs":45,"plots_or_metrics_computed":False}))
         return
-    indices=([1,2,3,4] if args.figures in {"all","main"} else [])+(["S1"] if args.figures in {"all","s1"} else [])
+    indices=([1,2,3,4] if args.figures in {"all","main"} else [])+(["S1"] if args.figures in {"all","s1","supplementary"} else [])+(["S2"] if args.figures in {"all","s2","supplementary"} else [])
     assert all(not (OUT/f"Figure_{i}.{ext}").exists() for i in indices for ext in ["png","svg","pdf"]), "Existing exports are protected; choose a new output directory."
     WORK.mkdir(parents=True,exist_ok=True)
     before=previous_snapshot()
     style()
-    funcs=([figure1,figure2,figure3,figure4] if args.figures in {"all","main"} else [])+([figure_s1] if args.figures in {"all","s1"} else [])
+    funcs=([figure1,figure2,figure3,figure4] if args.figures in {"all","main"} else [])+([figure_s1] if args.figures in {"all","s1","supplementary"} else [])+([figure_s2] if args.figures in {"all","s2","supplementary"} else [])
     for func in funcs:
         func();print(func.__name__+" PNG/SVG/PDF complete",flush=True)
     if args.figures in {"all","main"}:overview()
@@ -501,13 +484,16 @@ def main():
     QA["runtime"]={"python":platform.python_version(),"numpy":np.__version__,"pandas":pd.__version__,"matplotlib":matplotlib.__version__}
     QA["script_sha256"]=sha(Path(__file__))
     QA["formal_export_formats"]=["png","svg","pdf"]
+    external_checks=[QA[k] for k in ["external_figure2","external_figure_s2"] if k in QA]
+    QA["total_scatter_panels"]=len(QA["scatters"])+sum(len(q["scatters"]) for q in external_checks)
+    QA["total_source_cell_checks"]=len(QA["source_cells"])+sum(len(q["cells"]) for q in external_checks)
     QA["manual_visual_review"]="pending"
     (WORK/f"QA_FIGURES_{args.figures}.json").write_text(json.dumps(QA,indent=2)+"\n")
     manifest={"status":QA["status"],"sources":{k:{"path_relative_to_repository":p,"sha256":s,
         "unchanged_after_plotting":True} for k,(p,s) in SOURCES.items()},
         "protected_previous_files":before,"no_source_data_copied_or_modified":True}
     (WORK/f"SOURCE_MANIFEST_{args.figures}.json").write_text(json.dumps(manifest,indent=2)+"\n")
-    print(f"PASS: {len(QA['scatters'])} all-gene scatters; {len(QA['source_cells'])} frozen statistic cells; no performance recomputation.")
+    print(f"PASS: {QA['total_scatter_panels']} all-gene scatters; {QA['total_source_cell_checks']} frozen statistic cells; no performance recomputation.")
 
 if __name__=="__main__":
     main()
