@@ -1,0 +1,35 @@
+{
+  "frozen_utc": "2026-11-02T10:07:18.663538+00:00",
+  "status": "FROZEN_BEFORE_PERFORMANCE_COMPUTATION",
+  "files": [
+    {
+      "path": "evaluation_v2_20261102/LOCKED_ANALYSIS_PROTOCOL_V2.md",
+      "sha256": "1c84154f0ed9fda2801d5e5d074603e3aea887da61a054a02ccd03ec4ae31a9b"
+    },
+    {
+      "path": "preflight_20261102/LOCKED_ANALYSIS_PROTOCOL.md",
+      "sha256": "625d9d63b9a3c8f15a22dc49d5ea9285b3902c401a95013ce4f86cce029fdb70"
+    },
+    {
+      "path": "preflight_20261102/FREEZE_SHA256.csv",
+      "sha256": "dbaeac44fad8ca045480f927d634b60d6d84a546cf96645b15f15b8ef098ef2e"
+    },
+    {
+      "path": "preflight_20261102/audit/primary_gene_manifest.csv",
+      "sha256": "8adecd405fe35e085f16b9089463366237b152444bd6d4e777420bb2316ebf35"
+    },
+    {
+      "path": "preflight_20261102/audit/three_target_gene_manifest.csv",
+      "sha256": "cd7fa25808576422974dd2551340d177124c8aceb5149bef58874769ef247215"
+    }
+  ],
+  "amendments": [
+    "Secondary Bio-XGB minus LM Spearman paired CI",
+    "Descriptive five-fold Bio-XGB and Bio-Fusion Spearman and difference"
+  ],
+  "primary_n": 4890,
+  "three_target_n": 4801,
+  "seed": 42,
+  "bootstrap_replicates": 5000,
+  "sole_primary": "Bio-Fusion minus Bio-XGB Spearman"
+}

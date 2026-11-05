@@ -59,3 +59,26 @@ crosswalk remains an Apache-2.0 code excerpt, even when included in a workbook.
 The [manifest](file_manifest.csv) gives per-file provenance and component-scope
 notes; the [supplementary guide](../supplementary/README.md) distinguishes the
 article-source and code-excerpt sheets of ESM_3b.
+
+## Additional organoid measurements (GSE336417)
+
+`data/organoid/sources/` contains the original GEO processed CSV and the
+publisher's Supplementary Table 5 workbook from Jiang et al. (Nature 657,
+1053–1063, 2026; doi:10.1038/s41586-026-10890-0), retrieved on 2 November 2026.
+Only shCtrl half-lives and fit quality from Table 5e/the corresponding CSV enter
+evaluation. Adjacent receipts identify exact URLs, byte sizes and hashes.
+Gene symbols (`gene_name`) match the existing human `gene_symbol` exactly;
+ENSID and original fold come from `data/human/oof.csv`.
+
+`hl_exp_ctrl` is an estimated half-life in hours, `r2_exp_ctrl` is the control
+decay-fit R², and `half_life_gt_12h` is descriptive, never an exclusion flag.
+`Organoid` in joined results retains the GEO hours; `log2_half_life` is used
+only for Pearson. `Saluki` and `External-PC1` retain their existing target
+values and orientation. The 4,890-gene primary and 4,801-gene common-target
+manifests are in `data/organoid/frozen/preflight_20261102/audit/`.
+
+Author-owned new calculations/curation use CC BY 4.0, original code uses MIT,
+and copied measurements retain Jiang et al. attribution and source conditions.
+Mixed targets/predictions retain Saluki and RNAdecayCafe conditions as applicable.
+See [module documentation](organoid.md) and
+[source-specific rights](../DATA_LICENSES.md#gse336417-and-jiang-et-al-attribution).

@@ -1,0 +1,225 @@
+{
+  "status": "PASS",
+  "baseline_commit": "bd05252720c2ad9041ee923111dfcbd81baf1c28",
+  "organoid": {
+    "status": "PASS",
+    "elapsed_seconds": 78.06013362808153,
+    "input_hashes_verified": 42,
+    "source_correspondence": {
+      "published_n": 5888,
+      "control_qc_n": 5369,
+      "identical_control_QC_membership": true,
+      "half_life_max_abs_difference_hours": 4.930799946123443e-08,
+      "fit_max_abs_difference": 4.999939906547013e-10,
+      "peak_calling_and_decay_fitting_repeated": false
+    },
+    "reference_comparison": {
+      "all_reference_CSVs_checked": 14,
+      "bootstrap_reference_max_absolute_errors": {
+        "primary": {
+          "spearman": 0.0,
+          "pearson": 0.0,
+          "point_spearman": 0.0,
+          "point_pearson": 0.0
+        },
+        "three_targets": {
+          "spearman": 0.0,
+          "pearson": 9.992007221626409e-16,
+          "point_spearman": 0.0,
+          "point_pearson": 1.1102230246251565e-16
+        }
+      },
+      "identical_index_stream_hashes": true,
+      "primary_n": 4890,
+      "three_target_n": 4801,
+      "positive_folds": 5,
+      "primary_delta": 0.0178591459103421,
+      "primary_ci": [
+        0.0125608423202394,
+        0.0232501547253755
+      ]
+    },
+    "independent_all_draws_recalculated": 10000,
+    "training_inference_or_fitting": false,
+    "implementation_scope": "Independent implementation, same pinned environment; not biological replication."
+  },
+  "independent_recheck": {
+    "status": "PASS",
+    "started_utc": "2026-11-05T03:37:05.286583+00:00",
+    "completed_utc": "2026-11-05T03:37:53.683537+00:00",
+    "scope": "Independent implementation in same Python environment; not independent biological replication",
+    "all_bootstrap_draws_recomputed": 10000,
+    "max_absolute_tolerance": 5e-12,
+    "bootstrap_comparison": {
+      "primary": {
+        "spearman_max_abs": 8.881784197001252e-15,
+        "pearson_max_abs": 1.3877787807814457e-14,
+        "all_5000_draws_verified": true,
+        "index_stream_sha256": "ca24ea46484271112fd8c22060eeb677b19409a6cade1eeee7018f6a2785ffa6"
+      },
+      "three_targets": {
+        "spearman_max_abs": 8.770761894538737e-15,
+        "pearson_max_abs": 1.3655743202889425e-14,
+        "all_5000_draws_verified": true,
+        "index_stream_sha256": "584bcdf35698a813c5517106a6c2e160a1a79623329a28b8c47373a3dab82c9b"
+      }
+    },
+    "checks": {
+      "protocol_frozen_before_first_performance": true,
+      "v1_and_inputs_unchanged": true,
+      "source_reconstruction_ids_order_targets_predictions": true,
+      "all_251_long_estimates_retained": true,
+      "all_paired_CIs_independently_interpolated": true,
+      "fold_and_coverage_independently_recomputed": true,
+      "xlsx_all_cells_match_csv": true,
+      "xlsx_sheets": 13,
+      "training_inference_refitting_performed": false
+    }
+  },
+  "original_workflow": {
+    "seconds": 641.3358730538748,
+    "steps": [
+      {
+        "step": "input_structure",
+        "exit_code": 0,
+        "seconds": 1.7767524081282318
+      },
+      {
+        "step": "human_external",
+        "exit_code": 0,
+        "seconds": 63.07969699567184
+      },
+      {
+        "step": "unified_independent",
+        "exit_code": 0,
+        "seconds": 3.5411260100081563
+      },
+      {
+        "step": "unified_reference",
+        "exit_code": 0,
+        "seconds": 0.9602298261597753
+      },
+      {
+        "step": "mouse_ortholog",
+        "exit_code": 0,
+        "seconds": 38.525798390153795
+      },
+      {
+        "step": "measurements",
+        "exit_code": 0,
+        "seconds": 87.35678875027224
+      },
+      {
+        "step": "contexts",
+        "exit_code": 0,
+        "seconds": 93.24024098878726
+      },
+      {
+        "step": "distillation",
+        "exit_code": 0,
+        "seconds": 218.72441208316013
+      },
+      {
+        "step": "organoid",
+        "exit_code": 0,
+        "seconds": 78.96939946338534
+      },
+      {
+        "step": "main_tables",
+        "exit_code": 0,
+        "seconds": 0.8895012983120978
+      },
+      {
+        "step": "supplementary",
+        "exit_code": 0,
+        "seconds": 5.005001918878406
+      },
+      {
+        "step": "figures",
+        "exit_code": 0,
+        "seconds": 48.6450111689046
+      }
+    ],
+    "frozen_inputs_verified": 105,
+    "scope": "Complete default Python workflow, not --core-only"
+  },
+  "original_protected_files_byte_identical": 173,
+  "original_input_manifest_unchanged": true,
+  "original_display_tables_cell_identical": 24,
+  "new_display_table_sections_checked": 9,
+  "formal_organoid_XLSX_cells_checked": 132094,
+  "new_DOCX_table_cells_match_references": true,
+  "main_manuscript_unchanged": true,
+  "ESM_3a_ESM_3b_byte_identical": true,
+  "porting": {
+    "run_evaluation.py": {
+      "original_sha256": "b16069c6989d9b2b81cb19d5ab1aedfbde6fb1a7e3e25d3d7f18b2de8e3b4f6b",
+      "ported_sha256": "927fff4d31fbc42ecb8b4b3315f089bd9faf39bbfd96fdbb245cb6704145bae4",
+      "changed_functions": [
+        "verify_inputs",
+        "prepare",
+        "main"
+      ],
+      "statistical_helpers_AST_unchanged": true,
+      "changes": "Repository-relative input locations, output CLI and portable integrity checks only."
+    },
+    "independent_recheck.py": {
+      "original_sha256": "c2b9b4b1cde3632bd0474e897ffd44a7ee3b88201a2f69a06b0bfdc983d494b9",
+      "ported_sha256": "c9519c5896cc2eb84513ee9cc99f70eaf27229528608c24905d10a110a73efca",
+      "changed_functions": [
+        "main"
+      ],
+      "statistical_helpers_AST_unchanged": true,
+      "changes": "Repository-relative input locations, output CLI and portable integrity checks only."
+    }
+  },
+  "tested_environment": "Existing pinned Python environment; no dependency or lockfile changes",
+  "not_reexecuted": [
+    "model training or inference",
+    "R External-PC1 reconstruction (unchanged files; previous verification retained)",
+    "raw-read reprocessing, peak calling or decay fitting",
+    "new independent biological replication"
+  ],
+  "supplement_PDF": {
+    "pages": 32,
+    "blank_pages": 0,
+    "replacement_characters": 0,
+    "review": "All-page overview and focused new-method/table, equation and Figure S1 rendering inspected."
+  },
+  "final_bundle_checks": {
+    "status": "PASS",
+    "checks": [
+      {
+        "check": "release_tests",
+        "exit_code": 0,
+        "command": [
+          "python",
+          "tests/test_release.py"
+        ]
+      },
+      {
+        "check": "organoid_tests",
+        "exit_code": 0,
+        "command": [
+          "python",
+          "tests/test_organoid.py"
+        ]
+      },
+      {
+        "check": "supplied_workbooks",
+        "exit_code": 0,
+        "command": [
+          "python",
+          "scripts/tables.py",
+          "--check"
+        ]
+      }
+    ],
+    "current_module_hashes_verified": 44,
+    "original_DOCX_paragraph_XML_preserved_except_explicit_intro_extension": 1403,
+    "original_DOCX_non_body_members_byte_identical": 19,
+    "existing_main_DOCX_unchanged": true,
+    "rendered_font_records": 8,
+    "note": "Two original script snapshots were added after the full run; only archive/hash inventory changed. Current executable script hashes remain those of the successful complete run."
+  }
+}

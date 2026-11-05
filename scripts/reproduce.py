@@ -45,14 +45,15 @@ def main():
         for scope in ['measurements','contexts']:
             run(scope,['scripts/statistics/mouse_context.py','--scope',scope,'--output',rel+'/'+scope,'--workers',str(a.workers)]+(['--points-only'] if a.core_only else []))
         run('distillation',['scripts/statistics/distillation.py','--output',rel+'/distillation'])
+        run('organoid',['scripts/organoid/reproduce.py','--output',rel+'/organoid'])
         run('main_tables',['scripts/main_tables.py','--run',rel])
         run('supplementary',['scripts/tables.py','--output',rel+'/supplementary'])
         run('figures',['scripts/figures.py','--output-dir',rel+'/figures'])
         check_inputs()
         result=dict(status='PASS',seconds=time.monotonic()-start,frozen_inputs_checked=frozen,steps=journal,
              training=False,inference=False,model_fitting=False,external_upload=False,
-             point_recalculation=['Tables1–3','human/external Bio and Common','mouse primary and ortholog','27 measurements','16 contexts','PD4 primary and secondary'],
-             bootstrap_recalculation=['human/external','mouse primary','ortholog heterogeneity','PD4 primary and secondary']+([] if a.core_only else ['27 measurements','16 contexts']),
+             point_recalculation=['Tables1–3','human/external Bio and Common','mouse primary and ortholog','27 measurements','16 contexts','PD4 primary and secondary','GSE336417 primary, three targets, folds and coverage'],
+             bootstrap_recalculation=['human/external','mouse primary','ortholog heterogeneity','PD4 primary and secondary','GSE336417 primary and three targets, independently verified']+([] if a.core_only else ['27 measurements','16 contexts']),
              stored_only=['Full24-system TableS1 beyond included OOF controls','full ablation/permutation runs','fusion coefficient refitting','Common-Full sensitivity','curated provenance S12','External-PC1 R construction (separate command)','balanced/no-QN sensitivity statistics','ortholog context/target-concordance diagnostics']+(['27-measurement/16-context CIs'] if a.core_only else []),
              scientific_script_hashes={p.relative_to(ROOT).as_posix():sha(p) for p in sorted((ROOT/'scripts').rglob('*.py'))})
         (out/'REPRODUCTION_REPORT.json').write_text(json.dumps(result,indent=2)+'\n')

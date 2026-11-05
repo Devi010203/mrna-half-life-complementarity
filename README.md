@@ -21,13 +21,15 @@ The locked analysis environment uses Python 3.12. Each run creates a new
 `outputs/reproduction_<timestamp>/` directory. No input or reference file is
 overwritten. `REPRODUCTION_REPORT.json` records executed commands, exit status,
 recalculated analyses and display-only results. A failed numerical comparison
-stops the workflow. The full local validation took about 9 minutes on two CPU
+stops the workflow. The complete validation including GSE336417 took about 11 minutes on two CPU
 workers; runtime varies with hardware. Allow at least 1 GB of working disk space
 in addition to the Python environment. No GPU or R installation is required.
 
 The default includes 5,000 paired bootstrap draws for human/external comparisons,
 mouse/ortholog analyses, all 27 mouse measurements, all 16 human contexts, and
-the matched distillation analyses. It generates Tables 1–3, three supplementary
+the matched distillation analyses, and the additional GSE336417 organoid
+evaluation (including an independent recalculation of both 5,000-draw sets).
+It generates Tables 1–3, three supplementary
 workbooks, and Figures 1–4/S1 in PNG, PDF and SVG. The bundled approved PNG/PDF
 files remain unchanged. Arial is used when installed; otherwise Matplotlib's
 sans-serif fallback may change text layout, not data or statistics. Fonts are
@@ -57,6 +59,25 @@ CSV/NPZ files are computational inputs/references; XLSX workbooks are the
 reader-facing supplement. Repeated per-model OOF copies are not needed: all
 human predictions share one table and distillation arm/seed views are generated
 in memory. `Common-XGB` is the compact 1,027-feature model, never Common-Full.
+
+## Additional organoid evaluation
+
+[GSE336417](docs/organoid.md) adds a single patient-derived organoid shCtrl
+measurement test using the same five frozen human OOF predictors. The primary
+set has 4,890 genes; 4,801 share all three human targets. Supplementary Methods
+S7 and Tables S13–S14 describe the evaluation, common-target comparison and
+coverage diagnostics. Run it separately with:
+
+```bash
+uv run python scripts/organoid/reproduce.py --output outputs/organoid_check
+```
+
+The module uses the published processed tables, not sequencing reads. No models
+are retrained, inferred, calibrated or selected; earlier inputs and results
+remain unchanged. It retains all 251 half-life estimates above 12 h. This is
+new-measurement evaluation in one organoid line, not unseen-gene or multi-patient
+validation. Source provenance, limitations and output definitions are in the
+[module guide](docs/organoid.md).
 
 ## Reproduction scope
 

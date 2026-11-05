@@ -34,7 +34,7 @@ PROVENANCE = [
     ('Saluki_Script_Crosswalk', 'saluki_script_source_crosswalk.csv', 'S12: source-script input correspondence'),
 ]
 NAMES = {
-    'display': 'ESM_2_Supplementary_Tables_S1-S12.xlsx',
+    'display': 'ESM_2_Supplementary_Tables_S1-S14.xlsx',
     'statistics': 'ESM_3a_Source_Statistics_S9-S11.xlsx',
     'provenance': 'ESM_3b_Source_Provenance_S12.xlsx',
 }
@@ -149,10 +149,21 @@ def normalized_rows(ws):
     return [[v if v is not None else '' for v in row] for row in ws.values]
 
 
+def combined_spec(repo):
+    # Preserve the original frozen specification; append the organoid extension.
+    spec = json.loads((repo/'data/workbook_spec.json').read_text())
+    extension = json.loads((repo/'data/organoid/workbook_extension.json').read_text())
+    spec['workbooks'][0]['file'] = NAMES['display']
+    spec['workbooks'][0]['sheets'] += [
+        {'sheet': t['name'], 'source': extension['source'], 'source_sheet': t['name'],
+         'kind': 'xlsx', 'sha256': extension['sha256']} for t in extension['tables']]
+    return spec
+
+
 def verify(repo, directory):
     if not __debug__:
         raise RuntimeError('Do not use python -O for workbook verification')
-    spec = json.loads((repo/'data/workbook_spec.json').read_text())
+    spec = combined_spec(repo)
     report = {'status': 'PASS', 'model_or_statistical_calculation': False, 'workbooks': [], 'cells_checked': 0}
     for book in spec['workbooks']:
         # Fully load normal-mode workbooks before closing the underlying handle.
@@ -190,7 +201,10 @@ def build(repo, output):
     original = repo/'data/sources/supplementary_display.xlsx'
     base = openpyxl.load_workbook(original, read_only=True, data_only=False)
     titles = {r[0]:r[1] for r in list(base['Index'].values)[1:] if r[0] in base.sheetnames}
-    wb = base_book('Supplementary Tables S1-S12', 'All 24 approved display tables. S9-S12 are post hoc supplementary analyses.', metadata)
+    wb = base_book('Supplementary Tables S1-S14', 'Original S1-S12 preserved; S13-S14 add the frozen organoid evaluation.', metadata)
+    for row in wb['README']:
+        if row[0].value == 'Display tables':
+            row[1].value = 'S1-S12 preserve the original cells; S13-S14 show rounded frozen organoid results. Full precision remains in results/organoid/. See S7 for methods.'
     book = {'file': NAMES['display'], 'sheets': []}
     for name in base.sheetnames:
         if name == 'Index':
@@ -203,6 +217,20 @@ def build(repo, output):
         src = original.relative_to(repo).as_posix()
         add_index(wb, name, titles[name], len(rows)-1, len(rows[0]), src+'#'+name, sha(original))
         book['sheets'].append({'sheet': name, 'source': src, 'source_sheet': name, 'kind': 'xlsx', 'sha256': sha(original)})
+    extension = json.loads((repo/'data/organoid/workbook_extension.json').read_text())
+    added = openpyxl.load_workbook(repo/extension['source'], read_only=True, data_only=False)
+    assert sha(repo/extension['source']) == extension['sha256']
+    for t in extension['tables']:
+        name = t['name']; rows = list(added[name].values)
+        ws = wb.create_sheet(name)
+        for row in rows:
+            append_exact(ws, list(row))
+        style(ws, color='665280')
+        add_index(wb, name, name+': '+t['title']+'; Supplementary Methods S7', len(rows)-1,
+                  len(rows[0]), extension['source']+'#'+name, extension['sha256'])
+        book['sheets'].append({'sheet': name, 'source': extension['source'], 'source_sheet': name,
+                              'kind': 'xlsx', 'sha256': extension['sha256']})
+    added.close()
     finish(wb, output/NAMES['display'])
     spec['workbooks'].append(book)
     base.close()
@@ -224,7 +252,7 @@ def build(repo, output):
     # Specification is supplied read-only; regeneration must agree.
     spec_path = repo/'data/workbook_spec.json'
     if spec_path.exists():
-        assert json.loads(spec_path.read_text()) == spec
+        assert combined_spec(repo) == spec
     else:
         spec_path.write_text(json.dumps(spec, indent=2)+'\n')
     return verify(repo, output)

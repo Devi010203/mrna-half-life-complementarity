@@ -1,0 +1,9 @@
+item,note
+Sole primary,"Bio-Fusion minus Bio-XGB Spearman on 4,890 genes"
+Fit quality,"R2_exp >0.6 meets authors' control fit criterion, not proof of precise half-life"
+Long estimates,All 251 primary estimates >12 h retained; no clipping or sensitivity selection
+Bootstrap,"5,000 paired gene draws; seed 42; average ranks recalculated; linear percentile CI"
+Uncertainty,"Conditional on fixed models and targets; not training, fit or inter-patient uncertainty"
+Secondary,Descriptive; no multiplicity-adjusted confirmatory claims or model reweighting
+Coverage,Read depth/expression in this SLAM-seq experiment unavailable; old external coverage only
+Scope,One MSK107Li shCtrl PDO context; not unseen genes or multiple patients

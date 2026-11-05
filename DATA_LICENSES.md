@@ -23,7 +23,7 @@ The authors' original data contributions are licensed under
 to the extent that the authors hold the relevant rights. Covered contributions
 include newly generated model predictions, computed SHAP values, statistical
 summaries, saved bootstrap results, fitted fusion coefficients, and original
-data curation, selection and table organization. Credit Xu Jin, Bihang Cui,
+data curation, selection and table organization. Credit Xu Jin, Bihang Cui, Ruxin Yan,
 Yingchen Mao and Dinglin Zhang and this study, using [CITATION.cff](CITATION.cff),
 and retain the applicable source-dataset attribution.
 
@@ -44,7 +44,7 @@ unchanged.
 ### Scholarly prose and unbundled resources
 
 The complete manuscript and the scholarly prose of
-`supplementary/ESM_1_Supplementary_Information.pdf` are **not automatically covered**
+`supplementary/ESM_1_Supplementary_Information.pdf` and its editable sources are **not automatically covered**
 by this data license. Original data, figures and table organization within them
 have the scope stated above, with source exceptions retained. Permission to
 license the complete scholarly text must be handled separately.
@@ -96,6 +96,34 @@ is identified separately in the manifest. Do not infer that all files in the
 GitHub repository are CC0, or impose new license restrictions on CC0 material.
 
 ## Mixed-file component guide
+
+### GSE336417 and Jiang et al. attribution
+
+The additional processed half-lives are from Jiang Q, Raghavan MS, Rodriguez AM,
+et al., *ZFP36L2 orchestrates stress-adaptive plasticity in regeneration and
+cancer*, Nature 657, 1053–1063 (2026),
+[doi:10.1038/s41586-026-10890-0](https://doi.org/10.1038/s41586-026-10890-0),
+[GEO GSE336417](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE336417).
+The article's published rights statement is CC BY 4.0, with exceptions for
+separately credited third-party material. Its Supplementary Table 5e and the
+corresponding GEO processed table are attributed to these source authors;
+the original files and retrieval receipts are preserved in
+`data/organoid/sources/`. This attribution is source-specific, not a claim that
+all GEO submissions have one license. Retain the publication's license link,
+credit lines and exceptions when reusing the original supplementary workbook;
+unrelated sheets are not analysed or relicensed by this study.
+
+Original scripts in `scripts/organoid/` are MIT. The study's new matching/QC
+organization, statistical summaries, bootstrap calculations and table
+organization use the author-owned CC BY 4.0 grant above. Mixed per-gene tables
+also retain Jiang et al. measurement attribution, Saluki target/identifier
+conditions and, where present, RNAdecayCafe attribution for External-PC1.
+Study modifications comprise control-column selection, fixed QC and exact
+symbol matching, log2 transformation for Pearson, joins to existing OOF
+predictions and descriptive/paired-bootstrap statistics. They do not change the
+downloaded measurements. S7 scholarly text is outside the uniform data grant.
+
+### Other mixed components
 
 The file structure can remain intact; rights follow the components, not the
 CSV/XLSX extension. These examples identify the important boundaries; detailed

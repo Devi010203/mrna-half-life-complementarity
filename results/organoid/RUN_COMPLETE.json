@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETED_PENDING_INDEPENDENT_RECHECK",
+  "started_utc": "2026-11-02T10:11:34.707704+00:00",
+  "completed_utc": "2026-11-02T10:11:57.576463+00:00",
+  "elapsed_seconds": 22.86878275964409,
+  "primary_bootstrap": {
+    "n": 4890,
+    "replicates": 5000,
+    "seed": 42,
+    "index_stream_sha256": "ca24ea46484271112fd8c22060eeb677b19409a6cade1eeee7018f6a2785ffa6",
+    "index_encoding": "concatenated little-endian signed int64 arrays in draw order",
+    "undefined_draws": 0,
+    "discarded_draws": 0,
+    "replaced_draws": 0
+  },
+  "three_target_bootstrap": {
+    "n": 4801,
+    "replicates": 5000,
+    "seed": 42,
+    "index_stream_sha256": "584bcdf35698a813c5517106a6c2e160a1a79623329a28b8c47373a3dab82c9b",
+    "index_encoding": "concatenated little-endian signed int64 arrays in draw order",
+    "undefined_draws": 0,
+    "discarded_draws": 0,
+    "replaced_draws": 0
+  },
+  "primary_columns": [
+    "LM",
+    "Bio-XGB",
+    "Bio-Fusion",
+    "Common-XGB",
+    "Common-Fusion",
+    "Organoid"
+  ],
+  "three_target_columns": [
+    "LM",
+    "Bio-XGB",
+    "Bio-Fusion",
+    "Common-XGB",
+    "Common-Fusion",
+    "Saluki",
+    "External-PC1",
+    "Organoid"
+  ],
+  "n_long_half_life_retained": 251,
+  "fold_positive": 5,
+  "fold_negative": 0,
+  "no_training_inference_or_fitting": true
+}

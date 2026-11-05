@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-02T10:12:02.556434+00:00",
+  "completed_utc": "2026-11-02T10:12:44.849352+00:00",
+  "scope": "Independent implementation in same Python environment; not independent biological replication",
+  "all_bootstrap_draws_recomputed": 10000,
+  "max_absolute_tolerance": 5e-12,
+  "bootstrap_comparison": {
+    "primary": {
+      "spearman_max_abs": 8.881784197001252e-15,
+      "pearson_max_abs": 1.3877787807814457e-14,
+      "all_5000_draws_verified": true,
+      "index_stream_sha256": "ca24ea46484271112fd8c22060eeb677b19409a6cade1eeee7018f6a2785ffa6"
+    },
+    "three_targets": {
+      "spearman_max_abs": 8.770761894538737e-15,
+      "pearson_max_abs": 1.3655743202889425e-14,
+      "all_5000_draws_verified": true,
+      "index_stream_sha256": "584bcdf35698a813c5517106a6c2e160a1a79623329a28b8c47373a3dab82c9b"
+    }
+  },
+  "checks": {
+    "protocol_frozen_before_first_performance": true,
+    "v1_and_inputs_unchanged": true,
+    "source_reconstruction_ids_order_targets_predictions": true,
+    "all_251_long_estimates_retained": true,
+    "all_paired_CIs_independently_interpolated": true,
+    "fold_and_coverage_independently_recomputed": true,
+    "xlsx_all_cells_match_csv": true,
+    "xlsx_sheets": 13,
+    "training_inference_refitting_performed": false
+  }
+}

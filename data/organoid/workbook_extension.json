@@ -1,0 +1,497 @@
+{
+  "source": "data/organoid/supplementary_display.xlsx",
+  "sha256": "8faaf74ed07c09ef14d7b6ee3d8d78e100d1870875bdc1cbb0e0cafdf57e458a",
+  "tables": [
+    {
+      "name": "S13a",
+      "title": "Five-model control half-life evaluation",
+      "rows": [
+        [
+          "Model",
+          "n",
+          "Spearman [95% CI]",
+          "Pearson [95% CI]"
+        ],
+        [
+          "LM",
+          4890,
+          "0.428527 [0.404936, 0.451396]",
+          "0.433116 [0.410172, 0.454705]"
+        ],
+        [
+          "Bio-XGB",
+          4890,
+          "0.569797 [0.548816, 0.589294]",
+          "0.581667 [0.562702, 0.600324]"
+        ],
+        [
+          "Bio-Fusion",
+          4890,
+          "0.587656 [0.567696, 0.606635]",
+          "0.596210 [0.577647, 0.614336]"
+        ],
+        [
+          "Common-XGB",
+          4890,
+          "0.458147 [0.434730, 0.480481]",
+          "0.455444 [0.433889, 0.475684]"
+        ],
+        [
+          "Common-Fusion",
+          4890,
+          "0.488940 [0.466727, 0.511050]",
+          "0.487063 [0.466187, 0.507039]"
+        ]
+      ],
+      "note": "Spearman uses control half-life in hours; Pearson uses log2 half-life. Common-XGB denotes Common-Compact XGB. All models use the same 4,890 genes and their original human OOF predictions. Intervals are 95% percentile intervals from 5,000 paired gene-bootstrap draws (S7.2). R²_exp > 0.6 is a decay-fit criterion, not a precision guarantee; all 251 estimates above 12 h remain included.",
+      "sources": [
+        "Primary_models"
+      ]
+    },
+    {
+      "name": "S13b",
+      "title": "Prespecified paired model differences",
+      "rows": [
+        [
+          "Contrast",
+          "Role",
+          "n",
+          "ΔSpearman [95% CI]"
+        ],
+        [
+          "Bio-Fusion − Bio-XGB",
+          "Primary",
+          4890,
+          "0.017859 [0.012561, 0.023250]"
+        ],
+        [
+          "Bio-Fusion − LM",
+          "Secondary",
+          4890,
+          "0.159130 [0.139356, 0.178564]"
+        ],
+        [
+          "Common-Fusion − Common-XGB",
+          "Secondary",
+          4890,
+          "0.030793 [0.021850, 0.039683]"
+        ],
+        [
+          "Common-Fusion − LM",
+          "Secondary",
+          4890,
+          "0.060413 [0.046311, 0.074853]"
+        ],
+        [
+          "Bio-XGB − LM",
+          "Secondary",
+          4890,
+          "0.141271 [0.117630, 0.164869]"
+        ]
+      ],
+      "note": "Bio-Fusion − Bio-XGB is the sole primary comparison. Other contrasts are descriptive; Bio-XGB − LM was added before performance calculation in protocol v2. Models share each bootstrap draw; secondary intervals are not multiplicity-adjusted (S7.2).",
+      "sources": [
+        "Primary_deltas"
+      ]
+    },
+    {
+      "name": "S14a",
+      "title": "Five models on identical genes under three targets",
+      "rows": [
+        [
+          "Model",
+          "Saluki [95% CI]",
+          "External-PC1 [95% CI]",
+          "Organoid [95% CI]"
+        ],
+        [
+          "LM",
+          "0.529862 [0.507736, 0.551387]",
+          "0.490966 [0.467224, 0.513735]",
+          "0.430279 [0.406146, 0.453387]"
+        ],
+        [
+          "Bio-XGB",
+          "0.753922 [0.739678, 0.767551]",
+          "0.709195 [0.693039, 0.724585]",
+          "0.570126 [0.550089, 0.590405]"
+        ],
+        [
+          "Bio-Fusion",
+          "0.766068 [0.751933, 0.779216]",
+          "0.717149 [0.701199, 0.732200]",
+          "0.587807 [0.568119, 0.607367]"
+        ],
+        [
+          "Common-XGB",
+          "0.600074 [0.579391, 0.620035]",
+          "0.551314 [0.528962, 0.572602]",
+          "0.457600 [0.433348, 0.480051]"
+        ],
+        [
+          "Common-Fusion",
+          "0.624964 [0.604909, 0.644131]",
+          "0.575363 [0.553888, 0.596101]",
+          "0.488780 [0.465206, 0.510420]"
+        ]
+      ],
+      "note": "All entries are Spearman correlations on the same 4,801 genes. Saluki is the original human training target; External-PC1 and organoid half-lives are external measurements. Comparisons do not isolate a causal organoid or assay effect (S7.3).",
+      "sources": [
+        "Three_target_models"
+      ]
+    },
+    {
+      "name": "S14b",
+      "title": "Concordance between the three targets",
+      "rows": [
+        [
+          "Target pair",
+          "n",
+          "Spearman [95% CI]",
+          "Pearson [95% CI]"
+        ],
+        [
+          "Saluki / External-PC1",
+          4801,
+          "0.876744 [0.868224, 0.884587]",
+          "0.898063 [0.891709, 0.904000]"
+        ],
+        [
+          "Saluki / Organoid",
+          4801,
+          "0.717809 [0.702480, 0.732803]",
+          "0.699698 [0.685410, 0.713225]"
+        ],
+        [
+          "External-PC1 / Organoid",
+          4801,
+          "0.653466 [0.635424, 0.670604]",
+          "0.638084 [0.622084, 0.653514]"
+        ]
+      ],
+      "note": "Only the organoid half-life is log2-transformed for Pearson analysis. Existing target directions and values remain fixed. Intervals use the same paired common-gene draws as S14a (S7.3).",
+      "sources": [
+        "Target_concordance"
+      ]
+    },
+    {
+      "name": "S14c",
+      "title": "Fusion gains and descriptive differences between target-specific gains",
+      "rows": [
+        [
+          "Comparison",
+          "n",
+          "Estimate [95% CI]"
+        ],
+        [
+          "Saluki: Bio-Fusion − Bio-XGB",
+          4801,
+          "0.012147 [0.007691, 0.016485]"
+        ],
+        [
+          "External-PC1: Bio-Fusion − Bio-XGB",
+          4801,
+          "0.007954 [0.003185, 0.012624]"
+        ],
+        [
+          "Organoid: Bio-Fusion − Bio-XGB",
+          4801,
+          "0.017680 [0.012278, 0.022949]"
+        ],
+        [
+          "Organoid gain minus Saluki gain",
+          4801,
+          "0.005534 [0.000815, 0.010237]"
+        ],
+        [
+          "Organoid gain minus External-PC1 gain",
+          4801,
+          "0.009727 [0.004357, 0.015070]"
+        ]
+      ],
+      "note": "First three rows are ΔSpearman; last two are differences between paired ΔSpearman values, calculated within the same draws. Cross-target gain comparisons are descriptive, not causal interactions or new primary endpoints (S7.3).",
+      "sources": [
+        "Three_target_deltas",
+        "Gain_shift_descriptive"
+      ]
+    },
+    {
+      "name": "S14d",
+      "title": "Original outer-fold direction diagnostic",
+      "rows": [
+        [
+          "Fold",
+          "n",
+          "Bio-XGB Spearman",
+          "Bio-Fusion Spearman",
+          "Fusion − XGB"
+        ],
+        [
+          0,
+          990,
+          "0.543711",
+          "0.579526",
+          "0.035815"
+        ],
+        [
+          1,
+          993,
+          "0.560445",
+          "0.567494",
+          "0.007049"
+        ],
+        [
+          2,
+          959,
+          "0.566528",
+          "0.584746",
+          "0.018218"
+        ],
+        [
+          3,
+          959,
+          "0.588411",
+          "0.605073",
+          "0.016662"
+        ],
+        [
+          4,
+          989,
+          "0.588026",
+          "0.600449",
+          "0.012423"
+        ]
+      ],
+      "note": "All five fold differences are positive. These are descriptive partitions of the 4,890-gene primary set, not independent organoid experiments. No fold-specific confidence intervals, selection or reweighting were performed (S7.2).",
+      "sources": [
+        "Fold_diagnostics"
+      ]
+    },
+    {
+      "name": "S14e",
+      "title": "Gene coverage and existing External-PC1 availability",
+      "rows": [
+        [
+          "Group",
+          "n",
+          "External-PC1 n",
+          "External-PC1 fraction"
+        ],
+        [
+          "All human benchmark genes",
+          12981,
+          11381,
+          "0.876743"
+        ],
+        [
+          "Primary included",
+          4890,
+          4801,
+          "0.981800"
+        ],
+        [
+          "Published match, control QC failed",
+          425,
+          400,
+          "0.941176"
+        ],
+        [
+          "No exact published match",
+          7666,
+          6180,
+          "0.806157"
+        ],
+        [
+          "Not included (combined)",
+          8091,
+          6580,
+          "0.813249"
+        ],
+        [
+          "Primary with all three targets",
+          4801,
+          4801,
+          "1.000000"
+        ],
+        [
+          "Primary without External-PC1",
+          89,
+          0,
+          "0.000000"
+        ]
+      ],
+      "note": "The 425 quality-filter failures and 7,666 genes without an exact published match comprise the 8,091 non-included genes. Nested rows are not mutually exclusive. Lack of a published match does not establish absence of expression. All 89 primary genes lacking External-PC1 remain in S13 (S7.3).",
+      "sources": [
+        "Coverage_counts"
+      ]
+    },
+    {
+      "name": "S14f",
+      "title": "Included and non-included gene characteristics",
+      "rows": [
+        [
+          "Feature",
+          "Included: median [Q1, Q3]",
+          "Valid / missing n",
+          "Not included: median [Q1, Q3]",
+          "Valid / missing n"
+        ],
+        [
+          "Saluki target",
+          "-0.82 [-3.196, 1.339]",
+          "4890 / 0",
+          "1.079 [-3.106, 4.559]",
+          "8091 / 0"
+        ],
+        [
+          "Total sequence length (nt)",
+          "3647 [2375, 5413.25]",
+          "4890 / 0",
+          "2781 [1817, 4360]",
+          "8091 / 0"
+        ],
+        [
+          "5′UTR length (nt)",
+          "195 [100, 335]",
+          "4890 / 0",
+          "183 [92.5, 324]",
+          "8091 / 0"
+        ],
+        [
+          "CDS length (nt)",
+          "1536.5 [985, 2435]",
+          "4890 / 0",
+          "1345 [857, 2096.5]",
+          "8091 / 0"
+        ],
+        [
+          "3′UTR length (nt)",
+          "1365 [550, 2762.25]",
+          "4890 / 0",
+          "831 [328, 1933]",
+          "8091 / 0"
+        ],
+        [
+          "5′UTR GC fraction",
+          "0.667 [0.591, 0.738]",
+          "4890 / 0",
+          "0.658 [0.579, 0.736]",
+          "8091 / 0"
+        ],
+        [
+          "CDS GC fraction",
+          "0.501 [0.44, 0.579]",
+          "4890 / 0",
+          "0.55 [0.469, 0.613]",
+          "8091 / 0"
+        ],
+        [
+          "3′UTR GC fraction",
+          "0.409 [0.347, 0.496]",
+          "4890 / 0",
+          "0.446 [0.363, 0.543]",
+          "8091 / 0"
+        ],
+        [
+          "Earlier external measurements",
+          "59 [51, 61]",
+          "4838 / 52",
+          "42 [18, 59]",
+          "7453 / 638"
+        ],
+        [
+          "Earlier external datasets",
+          "14 [13, 14]",
+          "4838 / 52",
+          "11 [5, 14]",
+          "7453 / 638"
+        ],
+        [
+          "Earlier external cell lines",
+          "11 [10, 11]",
+          "4838 / 52",
+          "9 [4, 11]",
+          "7453 / 638"
+        ]
+      ],
+      "note": "Included n=4,890; not included n=8,091. Summaries use non-missing values only. Measurement/dataset/cell-line counts describe earlier external-human sources, not organoid sequencing depth or expression. Full 77 group-by-feature summaries, including IQR, are preserved in results/organoid/Coverage_features.csv (S7.3).",
+      "sources": [
+        "Coverage_features"
+      ]
+    },
+    {
+      "name": "S14g",
+      "title": "Original-target OOF Spearman by coverage group",
+      "rows": [
+        [
+          "Group",
+          "LM",
+          "Bio-XGB",
+          "Bio-Fusion",
+          "Common-XGB",
+          "Common-Fusion"
+        ],
+        [
+          "All human benchmark genes",
+          "0.655637",
+          "0.812306",
+          "0.827674",
+          "0.693625",
+          "0.725215"
+        ],
+        [
+          "Primary included",
+          "0.526182",
+          "0.753723",
+          "0.765606",
+          "0.600239",
+          "0.624253"
+        ],
+        [
+          "Published match, control QC failed",
+          "0.439634",
+          "0.716327",
+          "0.732281",
+          "0.441110",
+          "0.483376"
+        ],
+        [
+          "No exact published match",
+          "0.699120",
+          "0.830320",
+          "0.845174",
+          "0.722237",
+          "0.754130"
+        ],
+        [
+          "Not included (combined)",
+          "0.695808",
+          "0.831358",
+          "0.846001",
+          "0.717598",
+          "0.750233"
+        ],
+        [
+          "Primary with all three targets",
+          "0.529862",
+          "0.753922",
+          "0.766068",
+          "0.600074",
+          "0.624964"
+        ],
+        [
+          "Primary without External-PC1",
+          "0.328567",
+          "0.730031",
+          "0.729486",
+          "0.560419",
+          "0.553779"
+        ]
+      ],
+      "note": "All entries evaluate the original Saluki target, not organoid accuracy for non-included genes. Group sizes are in S14e. In the 89-gene primary subset lacking External-PC1, both fusion point estimates are slightly below their corresponding XGB models; no subgroup significance claim is made. Common-XGB means Common-Compact XGB (S7.3).",
+      "sources": [
+        "Coverage_original_OOF"
+      ]
+    }
+  ]
+}

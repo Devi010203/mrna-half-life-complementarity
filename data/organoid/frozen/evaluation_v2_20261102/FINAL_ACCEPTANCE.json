@@ -1,0 +1,49 @@
+{
+  "status": "PASS_COMPLETED_AND_STOPPED",
+  "sealed_utc": "2026-11-02T10:17:25.141262+00:00",
+  "protocol_v1_preserved": true,
+  "protocol_v2_frozen_before_performance": true,
+  "primary_n": 4890,
+  "three_target_n": 4801,
+  "sole_primary_comparison": {
+    "n": "4890",
+    "contrast": "Bio-Fusion minus Bio-XGB",
+    "role": "PRIMARY",
+    "metric": "Delta_Spearman",
+    "estimate": "0.0178591459103421",
+    "ci_low": "0.01256084232023948",
+    "ci_high": "0.023250154725375536"
+  },
+  "secondary_diagnostics_completed": [
+    "Bio-XGB minus LM paired CI",
+    "Five descriptive outer folds"
+  ],
+  "all_10000_bootstrap_draws_independently_verified": true,
+  "all_workbook_cells_verified": true,
+  "unmodified_preflight_files": 19,
+  "unchanged_source_input_hashes": 12,
+  "unchanged_public_manifest_files": 198,
+  "public_git_head": "2f36b01b25960a96f43fcf95762bd0187a9c65e0",
+  "public_git_clean": true,
+  "manuscript_or_public_package_edited": false,
+  "github_upload_performed": false,
+  "scientific_protocol_or_result_driven_adjustments": false,
+  "original_metric_and_prediction_files_modified": false,
+  "numerical_implementation_changes_after_run": false,
+  "expected_csv_row_counts": {
+    "Primary_models": 10,
+    "Primary_deltas": 5,
+    "Fold_diagnostics": 5,
+    "Three_target_models": 15,
+    "Target_concordance": 6,
+    "Three_target_deltas": 3,
+    "Gain_shift_descriptive": 2,
+    "Coverage_features": 77,
+    "Coverage_counts": 7,
+    "Coverage_original_OOF": 35,
+    "primary_evaluation_data": 4890,
+    "three_target_evaluation_data": 4801,
+    "coverage_groups": 12981
+  },
+  "scope_limit": "Single MSK107Li shCtrl PDO; fit criterion is not measurement precision; all 251 >12h retained"
+}

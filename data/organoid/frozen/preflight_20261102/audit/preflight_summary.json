@@ -1,0 +1,31 @@
+{
+  "status": "PREFLIGHT_PASS_NO_MODEL_PERFORMANCE_COMPUTED",
+  "published_rows": 5888,
+  "table5e_rows": 5888,
+  "control_qc_pass": 5369,
+  "control_qc_fail": 519,
+  "mapped_published": 5315,
+  "primary_genes": 4890,
+  "three_target_genes": 4801,
+  "primary_without_external_pc1": 89,
+  "qc_pass_without_exact_mapping": 479,
+  "human_not_primary": 8091,
+  "human_published_qc_fail": 425,
+  "human_not_exactly_in_published_list": 7666,
+  "missing_or_nonfinite_prediction_rows": 0,
+  "ambiguous_human_symbols": 0,
+  "primary_half_life_gt_12h": 251,
+  "primary_control_half_life_range": [
+    0.973843235,
+    43.37544277
+  ],
+  "downloadable_source_bytes": 7514409,
+  "metadata_samples": 28,
+  "evidence_scope": "Published t2 list; no raw time-course verification; inventory-level source independence only",
+  "software": {
+    "Python": "3.12.3",
+    "pandas": "2.1.4",
+    "numpy": "1.26.4",
+    "openpyxl": "3.1.2"
+  }
+}

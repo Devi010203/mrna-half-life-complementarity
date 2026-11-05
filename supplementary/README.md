@@ -1,13 +1,17 @@
 # Supplementary files and rights guide
 
-The PDF and three official XLSX workbooks retain their original scientific
-content, numerical cells, sheet structure and file bytes. This companion guide
-provides the license scope without rewriting those files.
+The supplement adds Methods S7 and Tables S13–S14 for GSE336417. Original S1–S12
+table cells, methods, equations and Figure S1 are preserved, apart from short
+scope/cross-reference additions. ESM_3a and ESM_3b remain byte-identical to the
+preceding release. ESM_2 extends the existing workbook, rather than adding a
+fourth reader-facing workbook. Full-precision organoid references are in
+`results/organoid/`; numerical CSV/NPZ inputs, not display rounding, govern
+reproduction.
 
 | File | Contents | Rights scope |
 |---|---|---|
-| `ESM_1_Supplementary_Information.pdf` | Supplementary Methods S1–S6, Note S1 and supplementary descriptions | Complete scholarly prose is not automatically included in the data license. Author-owned data/visualization contributions and third-party exceptions remain separately scoped. |
-| `ESM_2_Supplementary_Tables_S1-S12.xlsx` | Reader-facing supplementary tables | Author-owned new statistics and table organization: CC BY 4.0. Source metadata and attribution in S12a–c retain their source conditions; accession IDs and bibliographic facts acquire no new restrictions. |
+| `ESM_1_Supplementary_Information.pdf` | Supplementary Methods S1–S7, Note S1, Tables S1–S14 and Figure S1; editable DOCX and Markdown in `source/` | Complete scholarly prose is not automatically included in the data license. Author-owned data/visualization contributions and third-party exceptions remain separately scoped. |
+| `ESM_2_Supplementary_Tables_S1-S14.xlsx` | Reader-facing supplementary tables; S13a–b and S14a–g document organoid performance and diagnostics | Author-owned new statistics and table organization: CC BY 4.0. Retain Jiang et al. attribution for organoid measurements and original terms for Saluki/RNAdecayCafe. Source metadata and attribution in S12a–c retain their source conditions; accession IDs and bibliographic facts acquire no new restrictions. |
 | `ESM_3a_Source_Statistics_S9-S11.xlsx` | Human/external comparison and coverage statistics | Author-owned new statistical summaries and organization: CC BY 4.0; retain underlying data-source attribution. |
 | `ESM_3b_Source_Provenance_S12.xlsx` | Source verification, accession crosswalks and Saluki source records | Author-owned curation: CC BY 4.0; source facts, article material and code excerpts retain the different conditions specified below. |
 

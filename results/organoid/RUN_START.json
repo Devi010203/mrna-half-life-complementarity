@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-11-02T10:11:34.707704+00:00",
+  "protocol_freeze_sha256": "f297842a946420858f0bf7a1a1a54f8a7c34aed51d7fcf66482c6f1ff634ca28",
+  "code_sha256": {
+    "run_evaluation.py": "b16069c6989d9b2b81cb19d5ab1aedfbde6fb1a7e3e25d3d7f18b2de8e3b4f6b",
+    "independent_recheck.py": "c2b9b4b1cde3632bd0474e897ffd44a7ee3b88201a2f69a06b0bfdc983d494b9"
+  },
+  "software": {
+    "Python": "3.12.3",
+    "numpy": "1.26.4",
+    "pandas": "2.1.4",
+    "scipy": "1.11.4"
+  }
+}
