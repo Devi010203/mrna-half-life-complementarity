@@ -2,6 +2,8 @@
 
 For: **Complementarity and transfer limits of sequence- and feature-based mRNA stability prediction in human and mouse**
 
+Authors: Xu Jin, Bihang Cui, Ruxin Yan, Yingchen Mao, Dinglin Zhang.
+
 Reference numbers refer to the main manuscript. Tables S1–S8 report the original evaluations; Tables S9–S12 report the post hoc saved-prediction analyses and source reassessment. Supplementary Methods S6 distinguishes these added analyses from the original evaluations. Supplementary Methods S7 and Tables S13–S14 describe the additional organoid measurement evaluation.
 
 ## Supplementary Methods S1. Archived human model settings

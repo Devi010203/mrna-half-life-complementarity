@@ -164,6 +164,7 @@ def verify(repo, directory):
     if not __debug__:
         raise RuntimeError('Do not use python -O for workbook verification')
     spec = combined_spec(repo)
+    authors = json.loads((repo/'docs/publication.json').read_text())['authors']
     report = {'status': 'PASS', 'model_or_statistical_calculation': False, 'workbooks': [], 'cells_checked': 0}
     for book in spec['workbooks']:
         # Fully load normal-mode workbooks before closing the underlying handle.
@@ -171,6 +172,9 @@ def verify(repo, directory):
         with (directory/book['file']).open('rb') as stream:
             wb = openpyxl.load_workbook(stream, read_only=False, data_only=False)
         assert wb.sheetnames == ['README', 'Index'] + [s['sheet'] for s in book['sheets']]
+        readme = dict(wb['README'].values)
+        assert readme['Authors'] == ', '.join(authors), (book['file'], 'author order mismatch')
+        assert wb.properties.creator == '; '.join(authors), (book['file'], 'creator metadata mismatch')
         index_rows = {row[0]: row for row in list(wb['Index'].values)[1:]}
         cells = 0
         for s in book['sheets']:

@@ -3,8 +3,10 @@
 The complete supplement includes Methods S1–S7, Note S1, Tables S1–S14 and
 Figures S1–S2. Figure S2 presents the three external-human prediction scatters;
 the three-target model comparison and paired fusion gains are in main Figure 2b,c.
-Existing table cells, equations and Figure S1 are preserved. All three workbooks
-are byte-identical to the accepted GSE336417 integration release. Full-precision organoid references are in
+Scientific table cells, equations and Figure S1 are preserved. All three workbooks
+retain their accepted scientific contents and structure. Author labels and file
+properties consistently list Xu Jin, Bihang Cui, Ruxin Yan, Yingchen Mao and
+Dinglin Zhang, with Ruxin Yan third. Full-precision organoid references are in
 `results/organoid/`; numerical CSV/NPZ inputs, not display rounding, govern
 reproduction.
 

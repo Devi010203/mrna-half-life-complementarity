@@ -1,0 +1,62 @@
+{
+  "status": "PASS_AUTHOR_SYNC",
+  "date": "2026-11-06",
+  "authors": [
+    "Xu Jin",
+    "Bihang Cui",
+    "Ruxin Yan",
+    "Yingchen Mao",
+    "Dinglin Zhang"
+  ],
+  "scope": "Supplementary Information, source-statistics and provenance workbook author labels and metadata; main article and title page untouched.",
+  "DOCX_only_changed_members": [
+    "word/document.xml",
+    "docProps/core.xml"
+  ],
+  "ESM3a_ESM3b_only_changed_members": [
+    "xl/worksheets/sheet1.xml",
+    "docProps/core.xml"
+  ],
+  "ESM3a_ESM3b_only_changed_cell": "README!B4",
+  "ESM2_byte_identical": true,
+  "all_scientific_data_cells_and_other_Office_XML_unchanged": true,
+  "PDF_pages": 33,
+  "PDF_pages_2_to_33_exact_text_and_36dpi_pixel_match": true,
+  "PDF_page1_visually_checked": true,
+  "DOCX_and_PDF_creator_author_metadata_updated": true,
+  "regenerated_three_workbooks_five_authors_in_correct_order": true,
+  "workbook_cells_verified": 5311,
+  "protected_data_result_figure_training_environment_files": 208,
+  "no_training_inference_or_statistical_recalculation": true,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "tests/test_release.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tests/test_organoid.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tests/test_figures_supplement.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/tables.py",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

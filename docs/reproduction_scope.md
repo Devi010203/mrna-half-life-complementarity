@@ -33,7 +33,8 @@ from its editable source after adding Figure S2 and updating the Figure 2b,c
 cross-reference. All existing tables, equations, references and Figure S1 were
 preserved, as were the approved S6.4 reproduction scope and S7 organoid methods.
 The statistical workflow does not regenerate or modify the ESM PDF. The three
-bundled XLSX workbooks retain their existing values and structure.
+bundled XLSX workbooks retain their scientific values and structure; author
+labels and document properties have been synchronized to the five-author list.
 
 ## Verification and figure contract
 

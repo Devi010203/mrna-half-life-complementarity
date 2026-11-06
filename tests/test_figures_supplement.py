@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import unittest
 from zipfile import ZipFile
+from xml.etree import ElementTree as ET
 
 from PIL import Image
 
@@ -15,6 +16,20 @@ import figures_external as renderer
 
 
 class SupplementTests(unittest.TestCase):
+    def test_supplement_author_order(self):
+        expected=['Xu Jin','Bihang Cui','Ruxin Yan','Yingchen Mao','Dinglin Zhang']
+        self.assertEqual(json.loads((ROOT/'docs/publication.json').read_text())['authors'],expected)
+        with ZipFile(ROOT/'supplementary/source/ESM_1_Supplementary_Information.docx') as z:
+            document=ET.fromstring(z.read('word/document.xml'))
+            ns={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+            paragraphs=[''.join(t.text or '' for t in p.findall('.//w:t',ns)) for p in document.findall('.//w:p',ns)]
+            self.assertEqual([p for p in paragraphs if 'Xu Jin' in p],[', '.join(expected)])
+            core=ET.fromstring(z.read('docProps/core.xml'))
+            self.assertEqual(core.find('{http://purl.org/dc/elements/1.1/}creator').text,'; '.join(expected))
+        self.assertIn('Authors: '+', '.join(expected)+'.',(ROOT/'supplementary/source/SUPPLEMENTARY_EN.md').read_text())
+        from tables import verify
+        self.assertEqual(verify(ROOT,ROOT/'supplementary')['cells_checked'],5311)
+
     def test_saved_sources_and_readable_tables(self):
         data = renderer.load(ROOT)
         renderer.check_workbooks(ROOT, data)
