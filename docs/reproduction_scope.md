@@ -28,10 +28,14 @@ not a new experiment. Bootstrap uncertainty is conditional on fixed predictions.
 | Original training, pretrained embeddings and weight inference | Scientific implementations/configurations retained | Not executed | LEVEL3 not provided |
 
 The default rebuilds all three XLSX workbooks from canonical sources and checks
-5,311 cells in the reader-facing and source tables. The bundled ESM PDF was re-exported
-from its editable source after adding Figure S2 and updating the Figure 2b,c
-cross-reference. All existing tables, equations, references and Figure S1 were
-preserved, as were the approved S6.4 reproduction scope and S7 organoid methods.
+5,311 cells in the reader-facing and source tables. The bundled ESM PDF is the
+author-approved 7 November 2026 Windows/Acrobat export, supplied byte-for-byte.
+It includes Figure S2, the Figure 2b,c cross-reference and the final reference,
+language and layout corrections. Scientific table values and equations were
+retained, as were the approved S6.4 reproduction scope and S7 organoid methods.
+Its editable DOCX/Markdown companions are content-aligned; the exact Windows
+export source was not supplied. See `supplementary/source/README.md` for the
+export and embedded-image resolution notes.
 The statistical workflow does not regenerate or modify the ESM PDF. The three
 bundled XLSX workbooks retain their scientific values and structure; author
 labels and document properties have been synchronized to the five-author list.

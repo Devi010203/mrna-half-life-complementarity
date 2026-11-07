@@ -84,6 +84,9 @@ validation. Source provenance, limitations and output definitions are in the
 The [supplementary directory](supplementary/) contains the complete ESM_1 PDF,
 three multi-sheet XLSX workbooks, editable DOCX/Markdown sources and a file guide.
 It includes Supplementary Methods S1–S7, Note S1, Tables S1–S14 and Figures S1–S2.
+The bundled [ESM_1 PDF](supplementary/ESM_1_Supplementary_Information.pdf) is the
+author-approved submission copy dated 7 November 2026. Editable companions and
+export notes are provided in [supplementary/source](supplementary/source/).
 
 Figure 2 combines target agreement (11,381 genes), five-model performance and
 paired fusion gains across three targets (the same 4,801 genes), and all 16

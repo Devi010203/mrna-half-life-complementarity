@@ -4,9 +4,12 @@ The complete supplement includes Methods S1–S7, Note S1, Tables S1–S14 and
 Figures S1–S2. Figure S2 presents the three external-human prediction scatters;
 the three-target model comparison and paired fusion gains are in main Figure 2b,c.
 Scientific table cells, equations and Figure S1 are preserved. All three workbooks
-retain their accepted scientific contents and structure. Author labels and file
-properties consistently list Xu Jin, Bihang Cui, Ruxin Yan, Yingchen Mao and
-Dinglin Zhang, with Ruxin Yan third. Full-precision organoid references are in
+retain their accepted scientific contents and structure. Visible author lists
+name Xu Jin, Bihang Cui, Ruxin Yan, Yingchen Mao and Dinglin Zhang, with Ruxin Yan
+third. The author-approved ESM_1 PDF dated 7 November 2026 is the submission
+copy; its Acrobat `Author` metadata identifies the exporting user, not the
+complete author list. Editable companions and export details are in `source/`.
+Full-precision organoid references are in
 `results/organoid/`; numerical CSV/NPZ inputs, not display rounding, govern
 reproduction.
 

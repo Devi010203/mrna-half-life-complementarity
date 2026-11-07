@@ -1,10 +1,10 @@
 # Online Resource 1: Supplementary material
 
-For: **Complementarity and transfer limits of sequence- and feature-based mRNA stability prediction in human and mouse**
+**Complementarity and transfer limits of sequence- and feature-based mRNA stability prediction in human and mouse**
 
 Authors: Xu Jin, Bihang Cui, Ruxin Yan, Yingchen Mao, Dinglin Zhang.
 
-Reference numbers refer to the main manuscript. Tables S1–S8 report the original evaluations; Tables S9–S12 report the post hoc saved-prediction analyses and source reassessment. Supplementary Methods S6 distinguishes these added analyses from the original evaluations. Supplementary Methods S7 and Tables S13–S14 describe the additional organoid measurement evaluation.
+References cited in this supplementary material correspond to those in the main manuscript. Tables S1–S8 report the original evaluations; Tables S9–S12 report the post hoc saved-prediction analyses and source reassessment. Supplementary Methods S6 distinguishes these added analyses from the original evaluations. Supplementary Methods S7 and Tables S13–S14 describe the additional organoid measurement evaluation.
 
 ## Supplementary Methods S1. Archived human model settings
 
@@ -22,7 +22,7 @@ Feature-family abbreviations are RIP (RNA immunoprecipitation), ENCORI (Encyclop
 
 ## Supplementary Methods S2. Attribution, ablation and negative controls
 
-TreeSHAP explanations (Lundberg et al. 2020) were generated for the corresponding held-out fold of each Bio-XGB model. Absolute feature attributions were summarized both per feature and by feature family. Family totals and totals normalized by family dimensionality answer different questions and were kept separate. The 559 inputs were allocated to BASIC (8), RIP (33), ENCORI (133), eCLIP (225), M6ACLIP (13), PARCLIP (146) and TE (1). Correlation among annotations can redistribute attribution, and neither SHAP nor family aggregation provides a causal effect estimate.
+TreeSHAP explanations were generated from separately trained Bio-XGB interpretation models for their corresponding held-out folds (Lundberg et al. 2020). Absolute feature attributions were summarized both per feature and by feature family. Family totals and totals normalized by family dimensionality answer different questions and were kept separate. The 559 inputs were allocated to BASIC (8), RIP (33), ENCORI (133), eCLIP (225), M6ACLIP (13), PARCLIP (146) and TE (1). Correlation among annotations can redistribute attribution, and neither SHAP nor family aggregation provides a causal effect estimate.
 
 Attributions came from a separately trained interpretation run with the same ordered features, outer test-gene assignments and scientific XGBoost settings as the benchmark. The stored test R² values for folds 0–4 were 0.680139, 0.677754, 0.667529, 0.673560 and 0.684099; these and the selected tree iterations agreed with the corresponding benchmark records. This agreement does not establish checkpoint byte identity. The runs used 16 and 12 computational threads, respectively. Feature rankings average the five saved fold-level mean absolute attributions. The saved gene-level table covers a union of 124 features, not a complete 559-feature matrix; all 20 displayed features have values for every one of the 12,981 held-out genes. Figure 1d uses these values directly, with display-only vertical packing and a constant orange color that does not encode feature magnitude. No SHAP values or model performance statistics were recomputed for this revision.
 
@@ -70,9 +70,9 @@ The 50 teachers used the frozen XGBoost settings in S1, five inner folds, and se
 
 ## Supplementary Methods S4. External-target and context-analysis implementation notes
 
-RNAdecayCafe (Vock et al. 2025) was accessed through the version 1.1.0 Zenodo deposit (Vock 2025), with v1.1 data filenames. The overlap audit compared study, cell line, assay and accession information with the released Saluki source inventory. SRR6262128 and SRR6262129 were excluded before any matrix processing. Some historical raw source directories/accessions were unavailable, so the audit documents a bounded source-level assessment rather than exhaustive raw-experiment reconstruction.
+RNAdecayCafe (Vock et al. 2025) was accessed through its version 1.1.0 Zenodo deposit (DOI: 10.5281/zenodo.16884513), using the v1.1 data files. The overlap audit compared study, cell line, assay and accession information with the released Saluki source inventory. SRR6262128 and SRR6262129 were excluded before any matrix processing. Some historical raw source directories/accessions were unavailable, so the audit documents a bounded source-level assessment rather than exhaustive raw-experiment reconstruction.
 
-The primary matrix retained 13,630 genes with at least 10 finite measurements from 62 samples. Columns were standardized with base::scale using sample SD. With seed 42, missMDA::estim_ncpPCA searched ncp.min=0 to ncp.max=20 using the default Regularized, scale=TRUE, generalized-cross-validation path and selected ncp=12. imputePCA used that component number and package defaults. Quantile normalization used preprocessCore::normalize.quantiles, followed by stats::prcomp(center=TRUE, scale.=FALSE). The sign was flipped only when median Pearson correlation with raw external −log(kdeg) columns was negative; no original benchmark target or model prediction was read for this choice (Bolstad 2025; Bolstad et al. 2003; Josse and Husson 2016).
+The primary matrix retained 13,630 genes with at least 10 finite measurements from 62 samples. Columns were standardized with base::scale using sample SD. With seed 42, missMDA::estim_ncpPCA searched ncp.min=0 to ncp.max=20 using the default Regularized, scale=TRUE, generalized-cross-validation path and selected ncp=12. imputePCA used that component number and package defaults. Quantile normalization used preprocessCore::normalize.quantiles, followed by stats::prcomp(center=TRUE, scale.=FALSE). The sign was flipped only when median Pearson correlation with raw external −log(kdeg) columns was negative; no original benchmark target or model prediction was read for this choice (Bolstad 2017; Bolstad et al. 2003; Josse and Husson 2016).
 
 The context-balanced matrix contained 16 dataset–cell-line means, retained 9,786 genes observed in at least 10 contexts, and selected four imputation components from an effective maximum of 15. Its final model-matched set contained 8,871 genes. The no-QN sensitivity retained 11,381 model-matched genes. Restricting Primary External-PC1 to the context-balanced evaluable genes gave Bio-Fusion−Bio-XGB ΔSpearman=0.008586; the balanced target gave 0.007932. Fourteen complete leave-one-dataset-out target refits had median Spearman concordance 0.998963 and minimum 0.996244 with the complete target. These summaries were transcribed, not recalculated.
 
@@ -90,7 +90,7 @@ The human primary benchmark reports the unweighted mean of five outer-fold metri
 
 External-human and mouse primary evaluations used Spearman correlation, with Pearson correlation secondary. For each pooled scope, 5,000 gene-level bootstrap resamples with seed 42 supplied percentile 95% intervals. The same resampled indices were applied to all compared models to obtain paired differences. External context evaluations used seed 42 plus the zero-based lexicographic context index. Mouse strata and individual measurements likewise preserved model pairing within their predefined scope; each mouse measurement used seed 42 plus its zero-based lexicographic experiment index. Fractions of bootstrap differences above zero were descriptive direction-stability summaries, not p values. No context-level t-test, Wilcoxon test, false-discovery-rate procedure or meta-analysis was used to turn shared measurement contexts into independent replicates.
 
-For PD4, the primary estimand for B−A was
+For the matched distillation experiment, the primary estimand for B−A was
 
 \[
 \overline{\Delta R^2}_{B-A}
@@ -124,7 +124,7 @@ Of the unmatched genes, 910 had an exact-symbol coverage record with fewer than 
 
 ### S6.3 Bounded accession reassessment
 
-The reassessment covered 64 candidate samples from 15 datasets and the 19 human source studies in Saluki Table 1 (Agarwal and Kelley 2022). It combined source publications, repository records, original integration scripts and archived RNAdecayCafe processing configurations (Vock 2025; Vock et al. 2025). The two previously excluded Schofield K562 runs, SRR6262128 and SRR6262129, map to Simon-named columns in the Saluki integration script. Their exclusions remained unchanged.
+The reassessment covered 64 candidate samples from 15 datasets and the 19 human source studies in Saluki Table 1 (Agarwal and Kelley 2022). It combined source publications, repository records, original integration scripts and archived RNAdecayCafe processing configurations (Vock et al. 2025; Zenodo version 1.1.0, DOI: 10.5281/zenodo.16884513). The two previously excluded Schofield K562 runs, SRR6262128 and SRR6262129, map to Simon-named columns in the Saluki integration script. Their exclusions remained unchanged.
 
 All 59 other retained samples with original SRR identifiers appeared in the archived processing configurations. No additional overlap was identified within the documented source scope, but complete historical read-level inventories were unavailable. Different publication dates alone were not treated as evidence of independent experiments.
 
@@ -136,7 +136,7 @@ Two upstream citation links were corrected in the audit, while retaining their o
 
 The additional organoid evaluation and its independent statistical reproduction are described separately in S7; the scope below concerns the preceding analyses.
 
-Statistical reproduction used saved gene-level targets and predictions with fixed evaluation definitions. The CPU-only workflow recalculates the supported human and primary external-human comparisons, primary mouse and ortholog-stratified analyses, all 27 mouse measurements and 16 human contexts. It also recalculates the primary and secondary matched-distillation analyses (PD4). Bootstrap intervals for these implemented estimands use the original 5,000-resample definitions, paired indices, gene order and seeds. Five-fold population standard deviations are reported separately as descriptive summaries, not confidence intervals. Recalculated estimates and intervals were checked against frozen references; their uncertainty remains conditional on the supplied predictions and targets.
+Statistical reproduction used saved gene-level targets and predictions with fixed evaluation definitions. The CPU-only workflow recalculates the supported human and primary external-human comparisons, primary mouse and ortholog-stratified analyses, all 27 mouse measurements and 16 human contexts. It also recalculates the primary and secondary matched-distillation analyses. Bootstrap intervals for these implemented estimands use the original 5,000-resample definitions, paired indices, gene order and seeds. Five-fold population standard deviations are reported separately as descriptive summaries, not confidence intervals. Recalculated estimates and intervals were checked against frozen references; their uncertainty remains conditional on the supplied predictions and targets.
 
 The isolated Python environment used Python 3.12.3, NumPy 1.26.4, pandas 2.1.4 and SciPy 1.11.4. Tables 1–3, Figures 1–4 and S1–S2, and three supplementary workbooks were regenerated from saved source data. Figure rendering used Matplotlib 3.9.2 and Pillow 10.4.0, with dependencies recorded in the supplied lockfile.
 
@@ -573,7 +573,7 @@ Original metadata remain available. These audit corrections changed neither meas
 
 Spearman uses control half-life in hours; Pearson uses log2 half-life. Common-XGB denotes Common-Compact XGB. All models use the same 4,890 genes and their original human OOF predictions. Intervals are 95% percentile intervals from 5,000 paired gene-bootstrap draws (S7.2). R²_exp > 0.6 is a decay-fit criterion, not a precision guarantee; all 251 estimates above 12 h remain included.
 
-### S13b. Prespecified paired model differences
+### S13b. Primary and secondary paired model differences
 
 | Contrast | Role | n | ΔSpearman [95% CI] |
 | --- | --- | --- | --- |

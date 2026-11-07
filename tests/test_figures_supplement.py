@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+import tomllib
 import unittest
 from zipfile import ZipFile
 from xml.etree import ElementTree as ET
@@ -19,6 +20,8 @@ class SupplementTests(unittest.TestCase):
     def test_supplement_author_order(self):
         expected=['Xu Jin','Bihang Cui','Ruxin Yan','Yingchen Mao','Dinglin Zhang']
         self.assertEqual(json.loads((ROOT/'docs/publication.json').read_text())['authors'],expected)
+        package=tomllib.loads((ROOT/'pyproject.toml').read_text())
+        self.assertEqual([a['name'] for a in package['project']['authors']],expected)
         with ZipFile(ROOT/'supplementary/source/ESM_1_Supplementary_Information.docx') as z:
             document=ET.fromstring(z.read('word/document.xml'))
             ns={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -57,6 +60,13 @@ class SupplementTests(unittest.TestCase):
         text=(ROOT/'supplementary/source/SUPPLEMENTARY_EN.md').read_text()
         self.assertIn('### Fig. S2', text)
         self.assertIn('../../figures/Figure_S2.png', text)
+        self.assertIn('S13b. Primary and secondary paired model differences', text)
+        for required in ['References cited in this supplementary material correspond to those in the main manuscript.',
+                         'separately trained Bio-XGB interpretation models',
+                         'DOI: 10.5281/zenodo.16884513', 'Bolstad 2017']:
+            self.assertIn(required,text)
+        for obsolete in ['Reference numbers refer to', 'Bolstad 2025', '(Vock 2025)', 'For PD4', 'analyses (PD4)']:
+            self.assertNotIn(obsolete,text)
 
     def test_file_manifest(self):
         with (ROOT/'docs/file_manifest.csv').open(newline='') as f:

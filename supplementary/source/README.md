@@ -1,16 +1,22 @@
 # Editable Supplementary Information
 
-`ESM_1_Supplementary_Information.docx` is the layout-preserving source of the
-complete supplement PDF, including equations, Tables S1–S14 and Figures S1–S2.
-`SUPPLEMENTARY_EN.md` is an editable text/table companion; the DOCX controls
-submission layout. Neither file is a replacement for the author's main article.
+The canonical submission file is `../ESM_1_Supplementary_Information.pdf`, the
+author-approved Windows/Acrobat export dated 7 November 2026.
+`ESM_1_Supplementary_Information.docx` and `SUPPLEMENTARY_EN.md` are content-aligned
+editable companions, including equations, Tables S1–S14 and Figures S1–S2.
+The exact Word file used for that Windows export was not supplied; these
+companions incorporate the approved reference/language corrections and the
+PDF's S13b heading. They do not guarantee identical pagination, mathematical
+typesetting or PDF bytes. Neither replaces the author's main article.
 
-The original S1–S12 table XML, equations, embedded figure and section settings
-were preserved. S7 and S13–S14 extend the same document; short introductory and
+Scientific table cells, equations and embedded figure pixels were preserved.
+S7 and S13–S14 extend the same document; short introductory and
 S6.4 cross-references identify the added scope. S2 adds the relocated external
 prediction scatter panels, while S7.3 cites main Figure 2b,c for the three-target
-comparison. The PDF was exported from the
-revised DOCX, not overlaid on an earlier PDF. The three reader workbooks are
+comparison. The current PDF has the final supplementary header, author–year
+reference wording, the Zenodo dataset DOI and the clarified separate SHAP-model
+description. Figure S1's caption and image share page 32; Figure S2 is on page 33.
+The author-selected PDF is distributed without modification. The three reader workbooks are
 regenerated separately by `scripts/tables.py`; formal numbers come from CSVs,
 not manual transcription of the DOCX or display rounding.
 
@@ -23,6 +29,11 @@ soffice --headless --convert-to pdf --outdir outputs/supplement_pdf \
 ```
 
 Office rendering and fonts can affect pagination; inspect the output before
-submission. The supplied PDF was visually checked after export. Scholarly
+submission. The supplied 33-page PDF was inspected, including its equation,
+tables and both figure pages. Acrobat downsampled the embedded figures to about
+300 ppi; the unchanged standalone PNGs in `../../figures/` are 600 dpi, and their
+PDF/SVG counterparts remain available. The DOCX retains the original embedded
+image pixels. No new image resampling was performed during synchronization.
+Scholarly
 prose is not automatically included in the repository's data license; see
 `DATA_LICENSES.md` and the supplementary rights guide.

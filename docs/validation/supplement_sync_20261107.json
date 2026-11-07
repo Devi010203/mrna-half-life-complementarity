@@ -1,0 +1,88 @@
+{
+  "status": "PASS_DOCUMENT_SYNC",
+  "date": "2026-11-07",
+  "scope": "Author-approved Supplementary Information PDF, editable companions and documentation; no statistical recalculation.",
+  "canonical_pdf_sha256": "8f3fb976c1d0d134bb8878ad725abb3c35f0823ce336fadbc9921dc7e8e8bbca",
+  "canonical_author_supplied_pdf_byte_identical": true,
+  "pdf_pages": 33,
+  "visible_authors": [
+    "Xu Jin",
+    "Bihang Cui",
+    "Ruxin Yan",
+    "Yingchen Mao",
+    "Dinglin Zhang"
+  ],
+  "supplement_sections": "Methods S1-S7, Note S1, Tables S1-S14, Figures S1-S2",
+  "editable_companion_paragraphs_matched_to_PDF": 166,
+  "scientific_table_rows_matched_to_PDF": 290,
+  "table_XML_blocks_unchanged": 33,
+  "Office_Math_object_unchanged": true,
+  "DOCX_embedded_image_bytes_unchanged": true,
+  "all_pages_rendered_and_overview_inspected": true,
+  "equation_and_figure_pages_inspected_at_page_scale": true,
+  "rotated_page_aware_out_of_page_words": 0,
+  "caption_and_image_pages": {
+    "S1": 32,
+    "S2": 33
+  },
+  "editable_source_limit": "Content-aligned companions; exact Word file used for the author-selected Acrobat export was not supplied. Pagination/math typesetting/byte identity are not guaranteed.",
+  "PDF_export_note": "Embedded figure images are about 300 ppi in the author-approved PDF; unmodified standalone PNGs remain 600 dpi. Acrobat Author metadata identifies the exporting user, not the complete visible author list.",
+  "scientific_preservation": "All data, results, figures, training/configuration, environment/lock and three supplementary workbooks are byte-identical to the previous commit.",
+  "no_training_inference_or_bootstrap_rerun": true,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "tests/test_release.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tests/test_organoid.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "tests/test_figures_supplement.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/tables.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/figures.py",
+        "--validate-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/reproduce.py",
+        "--help"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--check",
+        "--offline"
+      ],
+      "exit_code": 0
+    }
+  ]
+}
